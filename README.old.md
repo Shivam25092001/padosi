@@ -1,2 +1,0 @@
-# padosi
-rental service webapp

@@ -6,7 +6,6 @@ export default function Navbar() {
             <h1>padosi</h1>
             <br/>
             <center>This is the navbar
-            <hr />
             </center>
         </div>
     )

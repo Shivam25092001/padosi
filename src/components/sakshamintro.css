@@ -1,0 +1,74 @@
+.home{
+    display: flex;
+    margin-top: 10rem;
+    margin-left: 6rem;
+    margin-right: 6rem;
+/* height: 20rem; */
+}
+.left-child{
+    flex: 49%;
+    margin-right: 4rem;
+}
+.line{
+    flex: 0.1%;
+    background-color: black;
+}
+.right-child{
+    flex: 49.5%;
+    margin-left: 4rem;
+
+}
+.title {
+    font-size: 2.7rem;
+    font-weight: 500;
+}
+.left-child button{
+    height: 2.1rem;
+    width: 7rem;
+    font-family: 'Raleway', sans-serif;
+    background: none;
+    border: none;
+    border-radius: 0.25rem;
+    box-shadow: 2px 2px 0.5px 0.5px gray;
+    cursor: pointer;
+    margin-top: 2rem;
+}
+.right-child button{
+    height: 2.1rem;
+    width: 7rem;
+    font-family: 'Raleway', sans-serif;
+    background: none;
+    border: none;
+    border-radius: 0.25rem;
+    box-shadow: 2px 2px 0.5px 0.5px gray;
+    cursor: pointer;
+    margin-top: 2.5rem;
+}
+@media (max-width :1100px){
+    .home{
+        margin-top: 25rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        width: auto;
+        min-width: 450px;
+        height: auto;
+      
+    }
+    .left-child{
+        border-bottom: 1px solid black;
+        padding-bottom: 2rem;
+    }
+    .right-child{
+        margin-left: 0%;
+        
+        margin-top: 2rem;
+        margin-bottom: 5rem;
+    }
+}
+@media (max-width:1476px){
+    .right-child button{
+        margin-top: 5rem;
+    }
+}

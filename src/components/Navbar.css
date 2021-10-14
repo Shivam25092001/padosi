@@ -1,0 +1,153 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.Navbar{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-height: 10rem;
+   
+}
+.Navbar .upper{
+    display: flex;
+    max-height: 5rem;
+    width: 100%;
+    margin-bottom: 1rem;
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
+}
+.Navbar .lower{
+    width: 100%;
+}
+.Navbar .upper .uleft{
+    flex: 50%;
+    display: flex;
+    justify-content:left;
+    align-items: center;
+}
+.Navbar .upper .uleft .headlogo{
+    margin-left: 7rem;
+}
+.Navbar .upper .uright{
+    flex: 50%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.Navbar .upper .uright .login{
+    margin-right: 1rem;
+    font-size: 1.2rem;
+}
+.Navbar .upper .uright .login a{
+    text-decoration: none;
+    font-family: 'Raleway', sans-serif;
+}
+.Navbar .lower{
+    display: flex;
+    margin-top: 1rem;
+    max-height: 5rem;
+}
+.Navbar .lower .Left{
+    flex: 70%;
+    display: flex;
+    justify-content:left;
+    align-items: center;
+}
+.Navbar .lower .Left button{
+    display: none;
+    justify-content: left;
+    font-family: 'Raleway', sans-serif;
+    margin-left: 1rem;
+}
+.Navbar .lower .right{
+    flex: 30%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 1rem;
+}
+.Navbar .lower .Left .links a{
+    text-decoration: none;
+    font-size: 1.2rem;
+    margin-left: 7rem;
+    color: black;
+    font-family: 'Raleway', sans-serif;
+    
+}
+.Navbar .lower .Left .links a:hover{
+    box-shadow: 0px 2px gray;
+}
+.Navbar .lower .right input{
+    width: 10.5rem;
+    height: 1.4rem;
+    border: none;
+    padding-left: 1rem;
+    font-size: 1.2rem;
+    border-radius: 0.25rem;
+    font-family: 'Raleway', sans-serif;
+}
+.Navbar .lower .right button{
+    height: 1.4rem;
+    border: none;
+    cursor: pointer;
+    font-family: 'Raleway', sans-serif;
+    border-radius: 0.25rem;
+    padding: 0.2rem;
+    text-align: center;
+}
+.Navbar .lower .Left #hidden{
+    display: flex;
+}
+@media only screen and (max-width: 1250px){
+    .Navbar .lower .Left .links a{
+        text-decoration: none;
+        font-size: 0.8rem;
+        margin-left: 7rem;
+        color: black;
+        
+    }
+    .Navbar .lower .right input{
+        font-size: 0.8rem;
+    }
+}
+@media only screen and (max-width: 1100px){
+    .Navbar .lower .Left button{
+        display: flex;
+        position: absolute;
+        top: 3.8rem;
+
+    }
+    .Navbar .lower .Left .links {
+        display: none;
+    }
+    .Navbar .lower {
+        width: 100%;
+        max-height: 50rem;
+        
+    }
+    .Navbar .lower .Left #hidden {
+       
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        left: 0px;
+     
+        top: 6rem;
+        justify-content: left;
+       
+}
+.Navbar .lower .right input{
+
+    border: 1px solid black;
+}
+.Navbar .lower .Left #hidden a{
+    font-size: 1.3rem;
+    margin-top: 0.25rem;
+}
+.Navbar .lower .Left #hidden a:hover{
+    background-color: whitesmoke;
+    box-shadow: 0px 0px;
+}
+}

@@ -3,7 +3,7 @@
     margin-top: 10rem;
     margin-left: 6rem;
     margin-right: 6rem;
-/* height: 20rem; */
+    height: 20rem;
 }
 .left-child{
     flex: 49%;

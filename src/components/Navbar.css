@@ -6,78 +6,76 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-height: 10rem;
-   
+    height: 15vh;
 }
 .Navbar .upper{
     display: flex;
-    max-height: 5rem;
+    height: 10vh;
     width: 100%;
-    margin-bottom: 1rem;
-    margin-top: 0.5rem;
-    margin-left: 0.5rem;
 }
 .Navbar .lower{
+    display: flex;
+    margin-top: 1rem;
     width: 100%;
+    height: 5vh;
 }
 .Navbar .upper .uleft{
-    flex: 50%;
     display: flex;
-    justify-content:left;
+    flex: 50%;
+    justify-content: left;
     align-items: center;
 }
 .Navbar .upper .uleft .headlogo{
-    margin-left: 7rem;
+    margin-left: 7vw;
 }
 .Navbar .upper .uright{
-    flex: 50%;
     display: flex;
+    flex: 50%;
     justify-content: flex-end;
     align-items: center;
 }
 .Navbar .upper .uright .login{
-    margin-right: 1rem;
+    margin-right: 7vw;
     font-size: 1.2rem;
 }
 .Navbar .upper .uright .login a{
     text-decoration: none;
     font-family: 'Raleway', sans-serif;
 }
-.Navbar .lower{
-    display: flex;
-    margin-top: 1rem;
-    max-height: 5rem;
-}
 .Navbar .lower .Left{
-    flex: 70%;
     display: flex;
-    justify-content:left;
+    flex: 70%;
+    justify-content: left;
     align-items: center;
 }
 .Navbar .lower .Left button{
     display: none;
     justify-content: left;
     font-family: 'Raleway', sans-serif;
-    margin-left: 1rem;
+    /* margin-left: 7vw; */
 }
 .Navbar .lower .right{
     flex: 30%;
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    margin-right: 1rem;
+    margin-right: 7vw;
+    padding: 0%;
 }
 .Navbar .lower .Left .links a{
     text-decoration: none;
     font-size: 1.2rem;
-    margin-left: 7rem;
+    margin-left: 7vw;
     color: black;
     font-family: 'Raleway', sans-serif;
-    
 }
 .Navbar .lower .Left .links a:hover{
-    box-shadow: 0px 2px gray;
+    box-shadow: 0px 2px #dfdfdf;
+    color: #203864;
 }
+
+
+/* in dono ki styling krni h baad mai krenge */
 .Navbar .lower .right input{
     width: 10.5rem;
     height: 1.4rem;
@@ -96,58 +94,56 @@
     padding: 0.2rem;
     text-align: center;
 }
+/* in dono ki styling krni h baad mai krenge */
+
+
+
 .Navbar .lower .Left #hidden{
     display: flex;
 }
-@media only screen and (max-width: 1250px){
+/* @media only screen and (max-width: 1250px){
     .Navbar .lower .Left .links a{
         text-decoration: none;
         font-size: 0.8rem;
         margin-left: 7rem;
         color: black;
-        
     }
     .Navbar .lower .right input{
         font-size: 0.8rem;
     }
-}
+} */
+
 @media only screen and (max-width: 1100px){
     .Navbar .lower .Left button{
         display: flex;
         position: absolute;
         top: 3.8rem;
-
     }
     .Navbar .lower .Left .links {
         display: none;
     }
     .Navbar .lower {
         width: 100%;
-        max-height: 50rem;
-        
+        max-height: 50rem; 
     }
-    .Navbar .lower .Left #hidden {
-       
+    .Navbar .lower .Left #hidden {   
         display: flex;
         flex-direction: column;
         width: 100%;
         position: absolute;
         left: 0px;
-     
         top: 6rem;
         justify-content: left;
-       
-}
-.Navbar .lower .right input{
-
-    border: 1px solid black;
-}
-.Navbar .lower .Left #hidden a{
-    font-size: 1.3rem;
-    margin-top: 0.25rem;
-}
-.Navbar .lower .Left #hidden a:hover{
-    background-color: whitesmoke;
-    box-shadow: 0px 0px;
-}
+    }
+    .Navbar .lower .right input{
+        border: 1px solid black;
+    }
+    .Navbar .lower .Left #hidden a{
+        font-size: 1.3rem;
+        margin-top: 0.25rem;
+    }
+    .Navbar .lower .Left #hidden a:hover{
+        background-color: whitesmoke;
+        box-shadow: 0px 0px;
+    }
 }

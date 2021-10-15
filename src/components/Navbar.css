@@ -26,7 +26,8 @@
     align-items: center;
 }
 .Navbar .upper .uleft .headlogo{
-    margin-left: 7vw;
+    margin-left: 5vw;
+    margin-top: 0.8rem;
 }
 .Navbar .upper .uright{
     display: flex;
@@ -94,56 +95,61 @@
     padding: 0.2rem;
     text-align: center;
 }
-/* in dono ki styling krni h baad mai krenge */
-
-
-
-.Navbar .lower .Left #hidden{
-    display: flex;
+.closebtn{
+    display: none;
 }
-/* @media only screen and (max-width: 1250px){
-    .Navbar .lower .Left .links a{
-        text-decoration: none;
-        font-size: 0.8rem;
-        margin-left: 7rem;
-        color: black;
+@media only screen and (max-width: 768px){
+    .closebtn{
+        display: flex;
     }
-    .Navbar .lower .right input{
-        font-size: 0.8rem;
-    }
-} */
-
-@media only screen and (max-width: 1100px){
     .Navbar .lower .Left button{
         display: flex;
         position: absolute;
-        top: 3.8rem;
+        top: 1.2rem;
+        right: 1rem;
     }
     .Navbar .lower .Left .links {
         display: none;
     }
-    .Navbar .lower {
-        width: 100%;
-        max-height: 50rem; 
-    }
-    .Navbar .lower .Left #hidden {   
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        position: absolute;
-        left: 0px;
-        top: 6rem;
-        justify-content: left;
-    }
-    .Navbar .lower .right input{
-        border: 1px solid black;
+    
+    .Navbar .lower .Left #hidden{
+display: flex;
+flex-direction: column;
+ height: 100%;
+ width: 70%;
+ top: 3rem;
+ right: 0;
+  position: fixed;
+  align-items: center;
+  z-index: 5;
+  background-color: rgba(255, 255, 255, 0.9);
+  overflow-x: hidden;
+  transition: 0.5s;
     }
     .Navbar .lower .Left #hidden a{
-        font-size: 1.3rem;
-        margin-top: 0.25rem;
+        margin-top: 3rem;
     }
-    .Navbar .lower .Left #hidden a:hover{
+
+    .Navbar .lower .right input{
+        position: absolute;
+        border: none;
         background-color: whitesmoke;
-        box-shadow: 0px 0px;
+        border-radius: 20px;
+        width: 85vw;
+        margin-left: 2vw;
+        top: 5rem;
+        font-size: 0.8rem;
+    }
+   
+  
+    .Navbar .lower .right button{
+        width: 8vw;
+        font-size: 0.4rem;
+        top: 5rem;
+        position: absolute;
+      
+    }
+    .Navbar .upper .uright .login{
+        display: none;
     }
 }

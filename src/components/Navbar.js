@@ -16,6 +16,7 @@ export default function Navbar() {
             <div className="lower">
                 <div className="Left">
                 <div className="links" id={tog ?"hidden":""}> 
+                {/* <a href="" className="closebtn" >&times;</a> */}
                     <a href="/all">All</a>
                     <a href="/frequent">Frequents</a>
                     <a href="/cars">Cars</a>

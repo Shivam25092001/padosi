@@ -18,16 +18,21 @@ export default function Navbar() {
                 <div className="links" id={tog ?"hidden":""}> 
                 {/* <a href="" className="closebtn" >&times;</a> */}
                     <a href="/all">All</a>
+                    <div className="spacer"></div>
                     <a href="/frequent">Frequents</a>
+                    <div className="spacer"></div>
                     <a href="/cars">Cars</a>
+                    <div className="spacer"></div>
                     <a href="/bikes">Bikes</a>
+                    <div className="spacer"></div>
                     <a href="/hardware">Hardware</a>
+                    <div className="spacer"></div>
                 </div>
                 <button onClick = {()=> setTog(!tog)}>Open</button>
             </div>
             <div className="right">
-                <input type="text" placeholder = "Search..." />
-                <button>Search</button>
+                <input type="text" placeholder = "Search..." className="search-box"/>
+                <button className="search-btn" >Search</button>
             </div>
             </div>
         </div>

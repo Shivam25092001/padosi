@@ -18,4 +18,18 @@ const isUserAuthentic = asyncCatch( async (req, res, next) => {
     next();
 });
 
-export default isUserAuthentic;
+//check admin access
+const authorizeRoles = (...roles)=>{
+    return (req, res, next) => {
+        if(!roles.includes(req.user.role)){
+            new ErrorHandler(
+                `Role: ${req.user.role} is not alloweed to access this resource`,
+                403
+            );
+        }
+
+        next();
+    }
+};
+
+export { isUserAuthentic, authorizeRoles };

@@ -2,6 +2,8 @@ import ErrorHandler from "../utils/errorhandler.js";
 import asyncCatch from "../middleware/catchAsync.js";
 import User from "../models/userModel.js";
 import sendToken from "../utils/jwtcreater.js";
+import sendMail from "../utils/sendMail.js";
+import crypto from 'crypto';
 
 
 //Register a User
@@ -62,4 +64,73 @@ const Logout = asyncCatch( async (req, res, next) => {
     });
 } );
 
-export {registerUser, Login, Logout};
+
+// Forgot Password
+const forgotpass = asyncCatch(async(req, res, next) => {
+    const user = await User.findOne({ email: req.body.email});
+
+    if(!user){
+        return next(new ErrorHandler("User not found", 404));
+    }
+
+    //Get Password reset token
+    const resetToken = user.getResetPassToken();
+
+    await user.save({validateBeforeSave: false});
+
+    const resetPasswordUrl = `${req.protocol}://${req.get("host")}/api/v1/password/reset/${resetToken}`;
+
+    const message = `Your password reset token is :- 
+    \n\n ${resetPasswordUrl}
+    \n If not requested for this mail, please ignore.`;
+
+    try {
+        await sendMail({
+            email: user.email,
+            subject: `Padosi ID Password Recovery`,
+            message
+        });
+
+        res.status(200).json({
+            success: true,
+            message: `Email sent to ${user.email} successfully`,
+        });
+        
+    } catch (error) {
+        user.resetPasswordToken = undefined;
+        user.resetPasswordExpire = undefined;
+        await user.save({validateBeforeSave: false});
+
+        return next(new ErrorHandler(error.message, 500));
+    }
+});
+
+
+//Reset Password
+const resetpass = asyncCatch(async(req, res, next) => {
+
+    //hashing resetToken & comparing 
+    const resetPasswordToken = crypto.createHash("sha256").update(req.params.token).digest("hex");
+
+    const user = await User.findOne({
+        resetPasswordToken : resetPasswordToken,
+        resetPasswordExpire: { $gt: Date.now() },
+    });
+
+    if(!user){
+        return next(new ErrorHandler("Reset password token is invalid or has expired.", 400));
+    }
+
+    if(req.body.password !== req.body.confirmPassword){
+        return next(new ErrorHandler("Password & Confirm Password didn't match.", 400));
+    }
+
+    user.password = req.body.password;
+    user.resetPasswordExpire = undefined;
+    user.resetPasswordToken = undefined;
+    await user.save();
+
+    sendToken(user, 200, res);
+});
+
+export {registerUser, Login, Logout, forgotpass, resetpass};

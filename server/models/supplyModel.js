@@ -36,8 +36,9 @@ const supplySchema = mongoose.Schema({
     },
   ],
   owner: {
-    owner_ID: {
-      type: String,
+    owner_id: {
+      type: mongoose.Schema.ObjectId,
+      ref: "User",
       required: true,
     },
     owner_rating: {

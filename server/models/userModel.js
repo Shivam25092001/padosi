@@ -1,5 +1,7 @@
 import mongoose from "mongoose";
 import validator from "validator";
+import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
 
 const userSchema = new mongoose.Schema({
     name:{
@@ -10,7 +12,7 @@ const userSchema = new mongoose.Schema({
     },
     email:{
         type: String,
-        required: [true, "Please enter your name"],
+        required: [true, "Please enter your email ID"],
         unique: true,
         validate: [validator.isEmail, "Please enter a valid email address" ]
     },
@@ -42,5 +44,30 @@ const userSchema = new mongoose.Schema({
     resetPasswordToken: String,
     resetPasswordExpire: Date,
 });
+
+
+//Encrypting the password before it gets saved to the db
+userSchema.pre("save", async function(next){
+    //in-case of update & no password change - (to prevent password re-hashing)
+    if(!this.isModified("password")){
+        next();
+    }
+
+    this.password  = await bcrypt.hash(this.password, 10);
+});
+
+
+//JWT Token
+userSchema.methods.getJWT = function(){
+
+    return jwt.sign({ id: this._id }, process.env.JWT_SECRET, { expiresIn: process.env.JWT_EXPIRY });
+}
+
+
+//Password Check
+userSchema.methods.comparePassword = async function(inputPassword){
+    
+    return await bcrypt.compare(inputPassword, this.password);
+}
 
 export default mongoose.model('User', userSchema);

@@ -1,6 +1,7 @@
 import supplyItem from "../models/supplyModel.js";
 import ErrorHandler from "../utils/errorhandler.js";
 import asyncCatch from "../middleware/catchAsync.js";
+import Apifeatures from "../utils/apifeatures.js";
 
 //Create Supply Item
 const createSupply = asyncCatch(async (req,res)=>{
@@ -27,13 +28,19 @@ const createSupply = asyncCatch(async (req,res)=>{
 
 //Get all supply items
 const getSupplies = asyncCatch(async (req, res)=>{
+
+  const suppliesperPage = 5;
+  const supplycount = await supplyItem.countDocuments();
+
+  const apiRes = new Apifeatures(supplyItem.find(), req.query).search().filter().pagination(suppliesperPage);
     
-  const supplies = await supplyItem.find();
+  const supplies = await apiRes.query;
 
   res.status(200).json(
     {
       success: true, 
-      supplies
+      supplies,
+      supplycount
     }
   );
 });
@@ -59,7 +66,7 @@ const updateSupply = asyncCatch(async (req, res, next)=>{
   let item  = await supplyItem.findById(req.params.id);
 
   if(!item){
-    return next(new ErrorHandler("Supply not found", 404));
+    return next(new ErrorHandler("Supply item not found", 404));
   }
 
   item = await supplyItem.findByIdAndUpdate(req.params.id, req.body, {
@@ -79,7 +86,7 @@ const deleteSupply = asyncCatch(async (req, res, next)=>{
   let item  = await supplyItem.findById(req.params.id);
 
   if(!item){
-    return next(new ErrorHandler("Supply not found", 404));
+    return next(new ErrorHandler("Supply item not found", 404));
   }
 
   await item.remove();

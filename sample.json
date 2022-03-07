@@ -1,0 +1,229 @@
+{
+    "success": true,
+    "supplies": [
+        {
+            "owner": {
+                "owner_ID": "ss056989@gmail.com",
+                "owner_rating": 0
+            },
+            "avalability_time": {
+                "from": "2022-02-14T19:47:13.914Z",
+                "to": "2022-02-14T19:47:13.914Z"
+            },
+            "_id": "620ab1c1ec57ce80e48ff2dc",
+            "name": "Sampe_supply",
+            "desc": "sending to Padosi new data",
+            "price": 1200,
+            "rating": 0,
+            "images": [
+                {
+                    "public_id": "1010",
+                    "url": "gmail.com",
+                    "_id": "620ab1c1ec57ce80e48ff2dd"
+                }
+            ],
+            "category": [],
+            "Stock": 1,
+            "reviews": [],
+            "createdAt": "2022-02-14T19:47:13.914Z",
+            "__v": 0
+        },
+        {
+            "owner": {
+                "owner_ID": "ss056989@gmail.com",
+                "owner_rating": 0
+            },
+            "avalability_time": {
+                "from": "2022-02-15T07:12:24.249Z",
+                "to": "2022-02-15T07:12:24.249Z"
+            },
+            "_id": "620b5258c1fc5aefed2172f8",
+            "name": "Sampe_supply",
+            "desc": "sending to Padosi new data",
+            "price": 1200,
+            "rating": 0,
+            "images": [
+                {
+                    "public_id": "1010",
+                    "url": "gmail.com",
+                    "_id": "620b5258c1fc5aefed2172f9"
+                }
+            ],
+            "category": [],
+            "Stock": 1,
+            "reviews": [],
+            "createdAt": "2022-02-15T07:12:24.250Z",
+            "__v": 0
+        },
+        {
+            "owner": {
+                "owner_ID": "ss056989@gmail.com",
+                "owner_rating": 0
+            },
+            "avalability_time": {
+                "from": "2022-02-15T07:12:51.249Z",
+                "to": "2022-02-15T07:12:51.249Z"
+            },
+            "_id": "620b5273b9f1327da1256eb3",
+            "name": "Sampe_supply",
+            "desc": "sending to Padosi new data",
+            "price": 1200,
+            "rating": 0,
+            "images": [
+                {
+                    "public_id": "1010",
+                    "url": "gmail.com",
+                    "_id": "620b5273b9f1327da1256eb4"
+                }
+            ],
+            "category": [],
+            "Stock": 1,
+            "reviews": [],
+            "createdAt": "2022-02-15T07:12:51.249Z",
+            "__v": 0
+        },
+        {
+            "owner": {
+                "owner_ID": "ss056989@gmail.com",
+                "owner_rating": 0
+            },
+            "avalability_time": {
+                "from": "2022-02-15T07:13:19.689Z",
+                "to": "2022-02-15T07:13:19.689Z"
+            },
+            "_id": "620b528f82fa5fbe5b1b2b82",
+            "name": "Sampe_supply",
+            "desc": "sending to Padosi new data",
+            "price": 1200,
+            "rating": 0,
+            "images": [
+                {
+                    "public_id": "1010",
+                    "url": "gmail.com",
+                    "_id": "620b528f82fa5fbe5b1b2b83"
+                }
+            ],
+            "category": [],
+            "Stock": 1,
+            "reviews": [],
+            "createdAt": "2022-02-15T07:13:19.689Z",
+            "__v": 0
+        },
+        {
+            "owner": {
+                "owner_ID": "ss056989@gmail.com",
+                "owner_rating": 0
+            },
+            "avalability_time": {
+                "from": "2022-03-04T16:33:25.975Z",
+                "to": "2022-03-04T16:33:25.975Z"
+            },
+            "_id": "62223f55e8d04ca5183edd8e",
+            "name": "table",
+            "desc": "dinning table",
+            "price": 1200,
+            "rating": 0,
+            "images": [
+                {
+                    "public_id": "1010",
+                    "url": "gmail.com",
+                    "_id": "62223f55e8d04ca5183edd8f"
+                }
+            ],
+            "category": [
+                "furniture"
+            ],
+            "Stock": 1,
+            "reviews": [],
+            "createdAt": "2022-03-04T16:33:25.975Z",
+            "__v": 0
+        },
+        {
+            "owner": {
+                "owner_ID": "bt20cse060@gmail.com",
+                "owner_rating": 0
+            },
+            "avalability_time": {
+                "from": "2022-03-04T16:34:39.554Z",
+                "to": "2022-03-04T16:34:39.554Z"
+            },
+            "_id": "62223f9fe8d04ca5183edd91",
+            "name": "dell inspiron 5559",
+            "desc": "core i5 11th gen",
+            "price": 1200,
+            "rating": 0,
+            "images": [
+                {
+                    "public_id": "10104546ad",
+                    "url": "gmail.com",
+                    "_id": "62223f9fe8d04ca5183edd92"
+                }
+            ],
+            "category": [
+                "computer"
+            ],
+            "Stock": 1,
+            "reviews": [],
+            "createdAt": "2022-03-04T16:34:39.554Z",
+            "__v": 0
+        },
+        {
+            "owner": {
+                "owner_ID": "bt20cse060@gmail.com",
+                "owner_rating": 0
+            },
+            "avalability_time": {
+                "from": "2022-03-04T16:35:20.227Z",
+                "to": "2022-03-04T16:35:20.227Z"
+            },
+            "_id": "62223fc8e8d04ca5183edd94",
+            "name": "chair set of 5",
+            "desc": "dinning chairs",
+            "price": 1200,
+            "rating": 0,
+            "images": [
+                {
+                    "public_id": "1010dsdd4546ad",
+                    "url": "gmail.com",
+                    "_id": "62223fc8e8d04ca5183edd95"
+                }
+            ],
+            "category": [
+                "furniture"
+            ],
+            "Stock": 1,
+            "reviews": [],
+            "createdAt": "2022-03-04T16:35:20.227Z",
+            "__v": 0
+        },
+        {
+            "owner": {
+                "owner_ID": "hukku0000@gmail.com",
+                "owner_rating": 0
+            },
+            "avalability_time": {
+                "from": "2022-03-04T16:36:30.127Z",
+                "to": "2022-03-04T16:36:30.127Z"
+            },
+            "_id": "6222400ee8d04ca5183edd97",
+            "name": "cooking pan 12inc non-stick",
+            "desc": "non-stick pan",
+            "price": 100,
+            "rating": 0,
+            "images": [
+                {
+                    "public_id": "1010dscxcsdvdd4546ad",
+                    "url": "https://www.google.com/imgres?imgurl=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FI%2F61n5oBkfeTL._SX425_.jpg&imgrefurl=https%3A%2F%2Fwww.amazon.in%2FPrestige-Deluxe-Aluminium-Granite-Omelette%2Fdp%2FB00QWQ11O0&tbnid=bZ8sxMT_z65LCM&vet=12ahUKEwjAyafp8az2AhWcwHMBHZJMAQAQMygCegUIARDfAQ..i&docid=2xkLMqtmWM8igM&w=425&h=425&q=pan&ved=2ahUKEwjAyafp8az2AhWcwHMBHZJMAQAQMygCegUIARDfAQ",
+                    "_id": "6222400ee8d04ca5183edd98"
+                }
+            ],
+            "category": [
+                "kitchen"
+            ],
+            "Stock": 1,
+            "reviews": [],
+            "createdAt": "2022-03-04T16:36:30.127Z",
+            "__v": 0
+        }
+    ]
+}

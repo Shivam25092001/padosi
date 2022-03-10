@@ -8,7 +8,6 @@ const createSupply = asyncCatch(async (req,res)=>{
     console.log(req.user.id);
     
     req.body.owner = { "owner_id" : req.user.id};
-    console.log(req.body.owner);
     const item =  await supplyItem.create(req.body);
 
     res.status(201).json({
@@ -101,4 +100,89 @@ const deleteSupply = asyncCatch(async (req, res, next)=>{
   })
 });
 
-export {createSupply, getSupplies, updateSupply, deleteSupply, getDetails};
+
+// Create or update Review
+const createSupplyReview = asyncCatch(async(req, res, next) => {
+  const {rating, comment, supplyId} = req.body;
+
+  const review = {
+    user: req.user._id,
+    name: req.user.name,
+    rating: Number(rating),
+    comment
+  };
+
+  const supply = await supplyItem.findById(supplyId);
+
+  const isReviewed = supply.reviews.find(rev => rev.user.toString() === req.user.id.toString());
+  if(isReviewed){
+    supply.reviews.forEach( rev => {
+      if(rev.user.toString() === req.user.id.toString())
+        rev.rating  = rating,
+        rev.comment = comment
+    })
+  }
+  else{
+    supply.reviews.push(review);
+    supply.numOfReviews = supply.reviews.length;
+  }
+
+  let sum = 0;
+  supply.reviews.forEach(rev => {
+    sum += rev.rating;
+  });
+  supply.rating = sum / supply.reviews.length;
+
+  await supply.save({ validateBeforeSave: false });
+
+  res.status(200).json({
+    success: true
+  });
+});
+
+
+//Get all reviews of a supply
+const getSupplyReviews = asyncCatch(async(req, res, next) => {
+  const supply = await supplyItem.findById(req.query.supplyId);
+
+  if(!supply)
+    return next(new ErrorHandler(" Supply not found.", 404));
+
+  res.status(200).json({
+    success: true,
+    reviews: supply.reviews,
+  });
+});
+
+//Delete Review
+const deleteReview = asyncCatch( async (req, res, next) => {
+  const supply = await supplyItem.findById(req.query.supplyId);
+
+  if(!supply)
+    return next(new ErrorHandler(" Supply not found.", 404));
+
+  const reviews = supply.reviews.filter(
+    (rev) => rev._id.toString() !== req.query.id.toString()
+  );
+
+  let sum = 0;
+  reviews.forEach(rev => {
+    sum += rev.rating;
+  });
+
+  const rating = reviews.length >0 ? (sum / reviews.length) : 0;
+
+  const numOfReviews = reviews.length;
+
+  await supplyItem.findByIdAndUpdate(req.query.supplyId, {rating, reviews, numOfReviews}, {
+    new: true,
+    runValidators: true,
+    useFindAndModify: false
+  });
+
+  res.status(200).json({
+    success: true
+  });
+})
+
+export {createSupply, getSupplies, updateSupply, deleteSupply, getDetails, createSupplyReview, getSupplyReviews, deleteReview};

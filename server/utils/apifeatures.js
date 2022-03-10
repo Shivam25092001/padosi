@@ -5,7 +5,6 @@ class Apifeatures{
     }
 
     //methods:
-
     search(){
         const keyword = (this.queryStr.keyword) ? {
             name:{
@@ -45,7 +44,7 @@ class Apifeatures{
 
         return this;
     }
-}
+};
 
 
-export default Apifeatures
+export default Apifeatures;

@@ -46,7 +46,7 @@ const supplySchema = mongoose.Schema({
       default: 0,
     },
   },
-  Stock: {
+  stock: {
     type: Number,
     required: [true, "Enter Stock available"],
     default: 1,
@@ -61,8 +61,17 @@ const supplySchema = mongoose.Schema({
         default: Date.now,
     }
   },
+  numOfReviews : {
+    type: Number,
+    default: 0
+  },
   reviews: [
     {
+      user: {
+        type: mongoose.Schema.ObjectId,
+        ref: "User",
+        required: true,
+      },
       name: {
         type: String,
         required: true,
@@ -83,5 +92,5 @@ const supplySchema = mongoose.Schema({
   },
 });
 
-const supplyItem =  mongoose.model('supplyItem', supplySchema);
-export default supplyItem;
+export default  mongoose.model('supplyItem', supplySchema);
+

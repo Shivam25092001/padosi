@@ -1,0 +1,95 @@
+.Rent-in{
+    padding-left: 6rem;
+    padding-right: 6rem;
+    padding-top: 3rem;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+}
+
+.heading{
+    padding: 2rem;
+}
+
+.supplies-section{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.filter-box{
+    background-color: white;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 5rem;
+    box-shadow: 25px 25px 20px -32px #dfdfdf;
+    min-height: 80vh;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+.category-item{
+    padding-top: 0.5rem;
+    list-style: none;
+    cursor: pointer;
+    font-size: small;
+}
+.category-item:hover{
+    color: #203864;
+    font-weight: bold;
+    padding-left: 0.5rem;
+    transition: all 0.3s ease-in;
+}
+
+.pagination-box{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.pagination{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+}
+.pagination > li:nth-child(1){
+    border-radius: 5px 0px 0px 5px;
+}
+.pagination > li:nth-last-child(1){
+    border-radius: 0px 5px 5px 0px;
+}
+.pagination > li{
+    list-style: none;
+    padding: 20px;
+    border: solid 2px white;
+    background-color: buttonface;
+    box-shadow: 2px 2px 5px 2px #dfdfdf;
+}
+.pagination > li:hover{
+    color: grey;
+    background-color: white;
+    border: solid 2px #203864;
+    transition: all ease-in 0.3s;
+    box-shadow: 5px 5px 5px 2px #dfdfdf;
+}
+.pagination > li > a{
+    color: black;
+    text-decoration: none;
+}
+
+
+
+
+
+
+
+@media screen and (max-width: 1110px){
+    .Rent-in{
+        padding: 10vw;
+        display: block;
+    }
+    .supplies-section{
+        flex-direction: column;
+    }
+
+}

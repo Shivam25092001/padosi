@@ -16,8 +16,8 @@ const port = process.env.PORT || 8000;
 const server = app.listen(port, () => {
   console.log(`listening on port http://localhost:${port}`);
 });
+ 
 
-//dotenv variables not working so skipping this just for now ...
 mongoose
   .connect(process.env.DBCONNECTION_URL)
   .then((data) => {

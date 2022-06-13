@@ -4,10 +4,10 @@ import {isUserAuthentic, authorizeRoles} from "../middleware/auth.js";
 
 const router = express.Router();
 
-router.get('/supplies',isUserAuthentic , authorizeRoles("admin"), getSupplies);
+router.get('/supplies', getSupplies);
 router.post('/supplies/new',isUserAuthentic, createSupply);
 router.put('/supplies/:id',isUserAuthentic, updateSupply);
-router.delete('/supplies/:id',isUserAuthentic, deleteSupply);
+router.delete('/supplies/:id',isUserAuthentic,authorizeRoles("admin") ,deleteSupply);
 router.get('/supplies/:id', getDetails);
 router.put("/review", isUserAuthentic, createSupplyReview);
 router.get("/reviews", getSupplyReviews);

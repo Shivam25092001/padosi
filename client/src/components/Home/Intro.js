@@ -1,5 +1,6 @@
 import React from "react";  
-import './shivam.css';
+import './Intro.css';
+import {Link} from "react-router-dom";
 
 export default function Intro() {
     return (
@@ -13,7 +14,7 @@ export default function Intro() {
             <div className="right child">
                 <h2 className="title">Urgent need of something for a while ?</h2>
                 <br/>
-                <button className="right-button">Rent In</button>
+                <button className="right-button"><Link to='/rent-in'>Rent In</Link></button>
             </div>
         </div>
     )

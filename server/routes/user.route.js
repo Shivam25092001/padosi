@@ -12,8 +12,8 @@ router.get("/me",isUserAuthentic , getUserDetails);
 router.put("/password/update", isUserAuthentic, updatePassword);
 router.put("/me/update", isUserAuthentic, updateProfile);
 router.get("/admin/users",isUserAuthentic, authorizeRoles("admin"), getUsers);
-router.get("/admin/users/:id",isUserAuthentic, authorizeRoles("admin"), getSingleUser);
-router.put("/admin/users/:id",isUserAuthentic, authorizeRoles("admin"), updateRole);
-router.delete("/admin/users/:id",isUserAuthentic, authorizeRoles("admin"), deleteUser);
+router.get("/admin/users/:id", isUserAuthentic, authorizeRoles("admin"), getSingleUser);
+router.put("/admin/users/:id", isUserAuthentic, authorizeRoles("admin"), updateRole);
+router.delete("/admin/users/:id", isUserAuthentic, authorizeRoles("admin"), deleteUser);
 
 export default router;

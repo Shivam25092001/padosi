@@ -34,11 +34,12 @@ class Apifeatures{
         this.query = this.query.find(JSON.parse(queryStr));
         return this;
     }
+    
 
     pagination(suppliesperPage){
         const currentpage = Number(this.queryStr.page) || 1;
 
-        const skip = suppliesperPage * (currentpage -1);
+        const skip = suppliesperPage * (currentpage - 1);
 
         this.query = this.query.limit(suppliesperPage).skip(skip);
 

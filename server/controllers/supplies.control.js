@@ -30,20 +30,24 @@ const createSupply = asyncCatch(async (req,res)=>{
 });
 
 //Get all supply items
-const getSupplies = asyncCatch(async (req, res)=>{
+const getSupplies = asyncCatch(async (req, res, next)=>{
 
-  const suppliesperPage = 5;
+  const suppliesperPage = 9;
   const supplycount = await supplyItem.countDocuments();
-
-  const apiRes = new Apifeatures(supplyItem.find(), req.query).search().filter().pagination(suppliesperPage);
-    
+  const apiRes = new Apifeatures(supplyItem.find(), req.query).search().filter().pagination(suppliesperPage);  
   const supplies = await apiRes.query;
+  
+  const apiRes2 = new Apifeatures(supplyItem.find(), req.query).search().filter();
+  const filteredSupply = await apiRes2.query;
+  const filteredSuppliesCount = filteredSupply.length;
 
   res.status(200).json(
     {
       success: true, 
       supplies,
-      supplycount
+      supplycount,
+      suppliesperPage,
+      filteredSuppliesCount
     }
   );
 });

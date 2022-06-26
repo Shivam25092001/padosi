@@ -1,11 +1,14 @@
 import React, { useState , useEffect} from 'react';
 import {Link ,useNavigate} from "react-router-dom";
+import { useSelector } from "react-redux";
 import './Navbar.css';
+import UserOptions from './UserMenu/UserOptions';
 
 export default function Navbar() {
     const navigate = useNavigate();
     const [toggle, setToggle] = useState(false);
     const [keyword, setKeyword] = useState("");
+    const { loading, user, isAuthenticated } = useSelector( state => state.userDetails);
 
     const searchSubmitHandler = (e)=>{
         e.preventDefault();
@@ -24,8 +27,14 @@ export default function Navbar() {
     return (
         <nav className="Navbar">
             <div className="top-section">
-                <div className="logo">padosi</div>
-                <div className="login-info">Login</div>
+                <div className="logo"><Link to='/'>padosi</Link></div>
+                <div className="login-info">
+                    {
+                        isAuthenticated 
+                        ? <UserOptions user={ user } />
+                        : <Link to='/login'>Login</Link>
+                    }
+                </div>
                 {/* hamburger-icon */}
                 <div className={toggle ? "burger-active" : "burger"} onClick={()=> setToggle(!toggle)}>
                     <div className="line-1"></div>

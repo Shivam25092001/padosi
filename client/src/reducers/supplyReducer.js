@@ -1,7 +1,7 @@
 import { ALL_SUPPLY_FAIL, ALL_SUPPLY_SUCCESS, ALL_SUPPLY_REQUEST, CLEAR_ERROR,
     SUPPLY_DETAILS_REQUEST, SUPPLY_DETAILS_SUCCESS, SUPPLY_DETAILS_FAIL } from "../constants/supplyConstant";
 
-export const supplyReducer = ((state = {supplies: []}, action)=>{
+export const supplyReducer = (state = {supplies: []}, action)=>{
 
     switch(action.type){
         case ALL_SUPPLY_REQUEST:
@@ -37,7 +37,7 @@ export const supplyReducer = ((state = {supplies: []}, action)=>{
         default:
             return state
     }
-});
+};
 
 export const supplyDetailsReducer = ((state = {supply: {}}, action)=>{
 

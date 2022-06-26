@@ -83,8 +83,8 @@
     font-weight: 500;   
 }
 .supplyItemCard-buttons > button:hover{
-    border: 1px solid #aedaa6;
-    color: #aedaa6;
+    border: 1px solid #203864;
+    color: #203864;
     cursor: pointer;   
 }
 

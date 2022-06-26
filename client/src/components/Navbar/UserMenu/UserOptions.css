@@ -1,0 +1,81 @@
+
+.action {
+  z-index: +15;
+}
+
+.profile {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    cursor: pointer;
+    margin: 0.7rem;
+}
+.profile > p{
+    color: #203864;
+}
+
+.action .profile img {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 0.7rem;
+}
+
+.menu {
+  position: absolute;
+  top: 9vh;
+  right: 7rem;
+  padding: 0.7rem 2rem;
+  background: rgb(255, 255, 255);
+  width: 18vw;
+  border-radius: 0.4rem;
+  transition: 0.3s;
+  visibility: hidden;
+  opacity: 0;
+  box-shadow: 4px 4px 10px 2px rgba(53, 53, 53, 0.078);
+}
+
+.active {
+  top: 8vh;
+  right: 5.9rem;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.action .menu ul li {
+  list-style: none;
+  padding: 0.5vh 0;
+  border-top: 1px solid #3881ff1e;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+.action .menu ul li:nth-child(1){
+    border-top: none;
+}
+
+.action .menu ul li img {
+  max-width: 18px;
+  margin-right: 10px;
+  opacity: 0.6;
+  transition: 0.5s;
+}
+
+.action .menu ul li:hover img {
+  opacity: 1;
+}
+
+.action .menu ul li a {
+  display: inline-block;
+  text-decoration: none;
+  color: #555;
+  font-size: smaller;
+  transition: 0.5s;
+}
+
+.action .menu ul li:hover a {
+  color: #203864;
+  font-weight: 500;
+  padding-right: 0.3rem;
+}

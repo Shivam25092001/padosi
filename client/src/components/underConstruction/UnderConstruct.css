@@ -1,0 +1,17 @@
+.under-construct{
+    display: flex;
+    height: 70vh;
+    justify-content: space-between;
+    align-items: center;
+    padding: 7rem;
+}
+.head{
+    width: 50%;
+}
+.image{
+    width: 50%;
+}
+.svg-img{
+    width: 30vw;
+    height: auto;
+}

@@ -86,5 +86,4 @@ userSchema.methods.getResetPassToken = function(){
     return resetToken;
 };
 
-
 export default mongoose.model('User', userSchema);

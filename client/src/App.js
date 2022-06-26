@@ -8,17 +8,30 @@ import React from "react";
 import Navbar from './components/Navbar/Navbar';
 import Intro from './components/Home/Intro';
 import RentIn from './components/Rent-In/Rent-In';
+import RentOut from './components/Rent-Out/Rent-Out';
 import SupplyDetails from './components/SupplyDetails/SupplyDetails';
+import Login from "./components/User/Login";
+import Profile from "./components/User/Profile";
+import store from "./store";
+import { loadUser } from './actions/userAction';
 
 function App() {
+  React.useEffect(()=>{
+    store.dispatch(loadUser());
+  },[]);
+
+
   return (
     <Router>
       <Navbar/>
       <Routes>
         <Route exact path="/" element={<Intro/>} />
         <Route exact path="/rent-in" element={<RentIn/>} /> 
+        <Route exact path="/rent-out" element={<RentOut/>} /> 
         <Route exact path="/rent-in/supplies/:id" element={<SupplyDetails/>} /> 
         <Route exact path="/rent-in/:keyword" element={<RentIn/>} /> 
+        <Route exact path="/login" element={<Login/>} />
+        <Route exact path="/account" element={<Profile/>} />
       </Routes>
     </Router>
   );

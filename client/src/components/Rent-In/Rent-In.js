@@ -24,7 +24,7 @@ import { PRICE_FILTER_MAX, PRICE_FILTER_MIN } from '../../constants/supplyConsta
 //     },
 // };
 
-const RentIn = ({match}) => {
+const RentIn = () => {
   const alert = useAlert();
   const dispatch = useDispatch();
   const {loading, error, supplies, supplyCount, supplyperPage, filteredSuppliesCount} = useSelector(

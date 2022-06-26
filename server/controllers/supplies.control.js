@@ -37,6 +37,7 @@ const getSupplies = asyncCatch(async (req, res, next)=>{
   const apiRes = new Apifeatures(supplyItem.find(), req.query).search().filter().pagination(suppliesperPage);  
   const supplies = await apiRes.query;
   
+  //to find supplies count length
   const apiRes2 = new Apifeatures(supplyItem.find(), req.query).search().filter();
   const filteredSupply = await apiRes2.query;
   const filteredSuppliesCount = filteredSupply.length;

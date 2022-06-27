@@ -14,6 +14,7 @@ import Login from "./components/User/Login";
 import Profile from "./components/User/Profile";
 import store from "./store";
 import { loadUser } from './actions/userAction';
+import UnderConstruct from './components/underConstruction/UnderConstruct';
 
 function App() {
   React.useEffect(()=>{
@@ -25,6 +26,7 @@ function App() {
     <Router>
       <Navbar/>
       <Routes>
+        <Route exact path="/under-construction" element={<UnderConstruct/>} />
         <Route exact path="/" element={<Intro/>} />
         <Route exact path="/rent-in" element={<RentIn/>} /> 
         <Route exact path="/rent-out" element={<RentOut/>} /> 

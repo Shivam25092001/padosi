@@ -23,6 +23,31 @@ const userSchema = new mongoose.Schema({
         minlength: [8, "Password cannot be smaller than 8 charecetrs"],
         select: false,
     },
+    address: {
+        address: {
+            type : String,
+            required: true
+        },
+        city: {
+            type : String,
+            required: true
+        },
+        state: {
+            type : String,
+            required: true
+        },
+        country: {
+            type : String,
+            required: true
+        },
+        pinCode: {
+            type: Number,
+            required: true,
+        },
+        phoneNumber: {
+            type: Number,
+        }
+    },
     avatar: {
             public_id: {
               type: String,
@@ -41,7 +66,6 @@ const userSchema = new mongoose.Schema({
         type: Number,
         default: 0,
     },
-
     resetPasswordToken: String,
     resetPasswordExpire: Date,
 });

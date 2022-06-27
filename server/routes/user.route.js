@@ -8,7 +8,7 @@ router.post("/login", Login);
 router.post("/password/forgot", forgotpass);
 router.put("/password/reset/:token", resetpass);
 router.get("/logout", Logout);
-router.get("/me",isUserAuthentic , getUserDetails);
+router.get("/me", isUserAuthentic , getUserDetails);
 router.put("/password/update", isUserAuthentic, updatePassword);
 router.put("/me/update", isUserAuthentic, updateProfile);
 router.get("/admin/users",isUserAuthentic, authorizeRoles("admin"), getUsers);

@@ -1,6 +1,7 @@
 import axios from "axios";
 import { ALL_SUPPLY_FAIL, ALL_SUPPLY_SUCCESS, ALL_SUPPLY_REQUEST, CLEAR_ERROR, 
     SUPPLY_DETAILS_FAIL, SUPPLY_DETAILS_REQUEST, SUPPLY_DETAILS_SUCCESS, 
+    USER_SUPPLY_REQUEST ,USER_SUPPLY_SUCCESS, USER_SUPPLY_FAIL,
     PRICE_FILTER_MIN, PRICE_FILTER_MAX } from "../constants/supplyConstant";
 
 export const getSupply = (keyword="", currentPage=1, price=[PRICE_FILTER_MIN , PRICE_FILTER_MAX], category, rating=0)=> async (dispatch)=>{
@@ -45,6 +46,26 @@ export const getSupplyDetails = (id)=>async (dispatch)=> {
         });
     }
 };
+
+
+export const getUserSupplies = ()=> async (dispatch)=>{
+    try{
+        dispatch({ type: USER_SUPPLY_REQUEST });
+
+        const { data } = await axios.get(`/api/v1/supplies/me`); 
+
+        dispatch({
+            type: USER_SUPPLY_SUCCESS,
+            payload: data.supplies,
+        });
+    }
+    catch (error) {
+        dispatch({
+            type: USER_SUPPLY_FAIL,
+            payload: error
+        });
+    }
+}
 
 
 //clearing errors

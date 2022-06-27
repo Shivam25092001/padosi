@@ -1,5 +1,7 @@
 import { ALL_SUPPLY_FAIL, ALL_SUPPLY_SUCCESS, ALL_SUPPLY_REQUEST, CLEAR_ERROR,
-    SUPPLY_DETAILS_REQUEST, SUPPLY_DETAILS_SUCCESS, SUPPLY_DETAILS_FAIL } from "../constants/supplyConstant";
+    SUPPLY_DETAILS_REQUEST, SUPPLY_DETAILS_SUCCESS, SUPPLY_DETAILS_FAIL,
+    USER_SUPPLY_REQUEST ,USER_SUPPLY_SUCCESS, USER_SUPPLY_FAIL,
+ } from "../constants/supplyConstant";
 
 export const supplyReducer = (state = {supplies: []}, action)=>{
 
@@ -70,3 +72,35 @@ export const supplyDetailsReducer = ((state = {supply: {}}, action)=>{
             return state;
     }
 });
+
+
+export const userSuppliesReducer = ((state = {userSupplies: []}, action) => {
+    switch(action.type){
+        case USER_SUPPLY_REQUEST:
+            return {
+                loading: true,
+                ...state,
+            }
+
+        case USER_SUPPLY_SUCCESS:
+            return {
+                loading: false,
+                userSupplies: action.payload,
+            }
+
+        case USER_SUPPLY_FAIL:
+            return {
+                loading: false,
+                error: action.payload,
+            }
+
+        case CLEAR_ERROR:
+            return {
+                ...state,
+                error: null,
+            }
+
+        default:
+            return state;
+    }
+})

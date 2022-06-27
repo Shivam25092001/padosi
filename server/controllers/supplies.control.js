@@ -7,7 +7,7 @@ import Apifeatures from "../utils/apifeatures.js";
 const createSupply = asyncCatch(async (req,res)=>{
     console.log(req.user.id);
     
-    req.body.owner = { "owner_id" : req.user.id};
+    req.body.owner = { "owner_id" : req.user.id };
     const item =  await supplyItem.create(req.body);
 
     res.status(201).json({
@@ -27,6 +27,21 @@ const createSupply = asyncCatch(async (req,res)=>{
     //     console.log(err);
     //   }
     // );
+});
+
+//Get my uploaded items
+const mySupplies = asyncCatch( async(req, res, next) => {
+
+  const supplies = await supplyItem.find({ 'owner.owner_id': req.user.id });
+
+  if(!supplies){
+      return next(new ErrorHandler("No supplies created yet", 401));
+  }
+
+  res.status(200).json({
+      success: true,
+      supplies
+  })
 });
 
 //Get all supply items
@@ -190,4 +205,4 @@ const deleteReview = asyncCatch( async (req, res, next) => {
   });
 })
 
-export {createSupply, getSupplies, updateSupply, deleteSupply, getDetails, createSupplyReview, getSupplyReviews, deleteReview};
+export {createSupply, getSupplies, mySupplies, updateSupply, deleteSupply, getDetails, createSupplyReview, getSupplyReviews, deleteReview};

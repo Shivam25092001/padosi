@@ -1,44 +1,66 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import "./UserOptions.css";
-import { useDispatch } from 'react-redux';
+import { useDispatch } from "react-redux";
 import { logoutUser } from "../../../actions/userAction";
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from "react-router-dom";
+import Avatar from "@mui/material/Avatar";
 
-const UserOptions = ({user}) => {
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
-    const [menuToggle, setMenuToggle] = useState(false);
+const UserOptions = ({ user }) => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [menuToggle, setMenuToggle] = useState(false);
 
-    const logout = ()=>{
-        dispatch(logoutUser());
-        navigate('/');
-        // 8:33:22 / 15:57:56
-    }
-    
+  const logout = () => {
+    dispatch(logoutUser());
+    navigate("/");
+  };
+
   return (
     // <div className="action" onMouseOver={()=> setMenuToggle(!menuToggle)} onMouseOut={()=> setMenuToggle(!menuToggle)}>
     <div className="action">
-        <div className="profile" onClick={()=> setMenuToggle(!menuToggle)}>
-            <img src={user.avatar.url} /> <p>{user.name}</p> 
-        </div>
-        <div className={menuToggle ? "menu active" : "menu"} >
-            <ul>
-                <li>
-                    <img src="/icons/user.svg" /><Link to='/account'>My profile</Link>
-                </li>
-                <li>
-                    <img src="/icons/settings.svg" /><a href="#">Edit profile</a>
-                </li>
-                <li>
-                    <img src="/icons/cart.svg" /><a href="#">Cart</a>
-                </li>
-                <li onClick={logout}>
-                    <img src="/icons/logout.svg" /><a href="#">Logout</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-  )
-}
+      <div className="profile" onClick={() => setMenuToggle(!menuToggle)}>
+        <Avatar
+          className="profile-img"
+          alt={user.name}
+          src={user.avatar.url}
+          sx={{ width: 24, height: 24 }}
+        />
+        <p>{user.name}</p>
+      </div>
+      <div className={menuToggle ? "menu active" : "menu"}>
+        <ul>
+          <li>
+            
+            <Link to="/account">
+              <img src="/icons/user.svg" />
+              My profile
+            </Link>
+          </li>
 
-export default UserOptions
+          <li>
+            <a href="#">
+              <img src="/icons/settings.svg" />
+              Edit profile
+            </a>
+          </li>
+
+          <li>
+            <a href="#">
+              <img src="/icons/cart.svg" />
+              Cart
+            </a>
+          </li>
+
+          <li onClick={logout}>
+            <a href="#">
+              <img src="/icons/logout.svg" />
+              Logout
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  );
+};
+
+export default UserOptions;

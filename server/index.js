@@ -1,7 +1,9 @@
 import mongoose from "mongoose";
 import app from "./server.js";
 import dotenv from "dotenv";
-dotenv.config();
+if(process.env.NODE_ENV !== "PRODUCTION"){
+  dotenv.config();
+}
 
 import cloudinary from "cloudinary";
 cloudinary.config({ 

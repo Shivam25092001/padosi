@@ -7,6 +7,8 @@ import ordersRoute from "./routes/order.route.js";
 import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
 import fileUpload from "express-fileupload";
+import path from "path";
+import {fileURLToPath} from 'url';
 
 
 
@@ -20,6 +22,13 @@ app.use(fileUpload());
 app.use("/api/v1", suppliesRoute);
 app.use("/api/v1", usersRoute);
 app.use("/api/v1", ordersRoute);
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+app.use(express.static(path.join(__dirname, "../client/build")));
+app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "../client/build/index.html"));
+})
 
 //Middleware for errors
 app.use(errhandle);

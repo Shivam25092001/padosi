@@ -1,0 +1,22 @@
+{
+  "name": "padosi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/index.js",
+    "dev": "nodemon server/index.js",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false && npm install --prefix server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shivam25092001/padosi.git"
+  },
+  "author": "Shivam",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Shivam25092001/padosi/issues"
+  },
+  "homepage": "https://github.com/Shivam25092001/padosi#readme"
+}

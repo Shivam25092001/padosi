@@ -19,8 +19,8 @@ const UserOptions = ({ user }) => {
   };
 
   return (
-    // <div className="action" onMouseOver={()=> setMenuToggle(!menuToggle)} onMouseOut={()=> setMenuToggle(!menuToggle)}>
-    <div className="action">
+    <div className="action" onMouseOver={()=> setMenuToggle(!menuToggle)} onMouseOut={()=> setMenuToggle(!menuToggle)}>
+    {/* <div className="action"> */}
       <div className="profile" onClick={() => setMenuToggle(!menuToggle)}>
         <Avatar
           className="profile-img"
@@ -33,18 +33,17 @@ const UserOptions = ({ user }) => {
       <div className={menuToggle ? "menu active" : "menu"}>
         <ul>
           <li>
-            
-            <Link to="/account">
+            <Link to="/me">
               <img src="/icons/user.svg" />
               My profile
             </Link>
           </li>
 
           <li>
-            <a href="#">
+            <Link to="/me/edit-avatar#">
               <img src="/icons/settings.svg" />
               Edit profile
-            </a>
+            </Link>
           </li>
 
           <li>

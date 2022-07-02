@@ -22,7 +22,7 @@ const EditProfile = () => {
         if(isUpdated){
             dispatch(loadUser());
             dispatch({ type: UPDATE_PROFILE_RESET });
-            navigate('/account');
+            navigate('/me');
         }
     }, [dispatch, isUpdated, error, user]);
 
@@ -153,7 +153,7 @@ const EditProfile = () => {
 
         <input
           type="submit"
-          value="Register"
+          value="Update Details"
           className="signup-btn"
           disabled={loading ? true : false}
         />

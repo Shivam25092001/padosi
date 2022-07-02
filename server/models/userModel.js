@@ -26,23 +26,23 @@ const userSchema = new mongoose.Schema({
     address: {
         address: {
             type : String,
-            required: true
+            required: false
         },
         city: {
             type : String,
-            required: true
+            required: false
         },
         state: {
             type : String,
-            required: true
+            required: false,
         },
         country: {
             type : String,
-            required: true
+            required: false
         },
         pinCode: {
             type: String,
-            required: true,
+            required: false
         },
         phoneNumber: {
             type: String,

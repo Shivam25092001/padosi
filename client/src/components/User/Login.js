@@ -81,7 +81,7 @@ const Login = () => {
 
 
       if(isAuthenticated){
-        navigate(`/account`);
+        navigate(`/me`);
       }
     }, [dispatch, alert, error, isAuthenticated, loading, navigate])
     

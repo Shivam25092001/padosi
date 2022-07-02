@@ -44,6 +44,24 @@ export const register = (userdata) => async (dispatch) =>{
     }
 }
 
+export const editAvatar = (userdata)=> async (dispatch) =>{
+    try {
+        dispatch({ type: UPDATE_AVATAR_REQUEST });
+
+        const config = { headers: { "Content-Type": "multipart/form-data"} };
+        
+        const {data} = await axios.put(
+            '/api/v1/me/update',
+            userdata,
+            config
+        );
+
+        dispatch( {type: UPDATE_AVATAR_SUCCESS, payload: data.success } );
+    } catch (error) {
+        dispatch({type: UPDATE_AVATAR_FAIL, payload: error.response.data.message});
+    }
+}
+
 
 export const loadUser = () => async (dispatch) => {
     try {
@@ -68,30 +86,12 @@ export const logoutUser = () => async (dispatch) => {
     }
 }
 
-export const editAvatar = (userdata)=> async (dispatch) => {
-    try {
-        dispatch({ type: UPDATE_AVATAR_REQUEST });
-
-        const config = { headers: { "Content-Type": "multipart/form-data"} };
-
-        const {data} = await axios.put(
-            '/api/v1/me/update',
-            userdata,
-            config
-        );
-
-        dispatch( {type: UPDATE_AVATAR_SUCCESS, payload: data.success } );
-    } catch (error) {
-        dispatch({type: UPDATE_AVATAR_FAIL, payload: error.response.data.message});
-    }
-}
-
 
 export const editProfile = (userdata)=> async (dispatch) => {
     try {
         dispatch({ type: UPDATE_PROFILE_REQUEST});
 
-        const config = { headers: { "Content-Type": "multipart/form-data" } };
+        const config = { headers: { "Content-Type": "application/json" } };
 
         const {data} = await axios.put(
             '/api/v1/me/update',

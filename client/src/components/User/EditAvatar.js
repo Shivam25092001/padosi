@@ -28,10 +28,11 @@ const EditAvatar = () => {
     setFilename(e.target.files.item(0).name);
     const reader = new FileReader();
     reader.onload = () => {
-      if (reader.readyState === 2) setAvatarPreview(reader.result);
-      setAvatar(reader.result);
+      if(reader.readyState === 2) 
+        setAvatarPreview(reader.result);
+        setAvatar(reader.result);
     };
-
+    
     reader.readAsDataURL(e.target.files[0]);
   };
 
@@ -42,6 +43,7 @@ const EditAvatar = () => {
     myForm.set("name", user.name);
     myForm.set("email", user.email);
     myForm.set("avatar", avatar);
+    myForm.set("address", JSON.stringify(user.address));
 
     dispatch(editAvatar(myForm));
   };
@@ -54,7 +56,7 @@ const EditAvatar = () => {
     }
     if(isUpdated){
       dispatch(loadUser());
-      navigate('/account');
+      navigate('/me');
 
       dispatch({ type: UPDATE_AVATAR_RESET });
     }

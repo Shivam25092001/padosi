@@ -1,0 +1,80 @@
+.edit-avatar{
+    background-color: rgba(244, 244, 244, 0.666);
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+    padding: 6rem;
+}
+.edit-avatar > h1{
+    padding-left: 1rem;
+}
+.main-edit-section{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+.avatar-upload-card{
+    height: 30vh;
+    width: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 8vh;
+    cursor: crosshair;
+}
+.fallback-pic {
+    font-size: 8vh;
+    cursor: crosshair;
+    background-color: white;
+    color: rgba(0, 0, 0, 0.407);
+}
+.avatar-upload-card > img{
+    height: 30vh !important;
+    width: 30vh !important;
+}
+.edit-avatar-form{
+    display: flex;
+    align-items: flex-end;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
+.edit-avatar-form > input::file-selector-button{
+    cursor: pointer;
+    width: 100%;
+    z-index: 2;
+    height: 6vh;
+    border: none;
+    margin: 0%;
+    transition: all 0.5s;
+    padding: 0 0vmax;
+    background-color: rgb(245, 245, 245);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.edit-avatar-form > input{
+    width: 10vw;
+    min-width: 10vw;
+    height: 3rem;
+    margin-right: 3rem;
+}
+.undefined{
+    color: grey;
+    align-self: center;
+    position: absolute;
+}
+.filename{
+    color: #203864;
+    align-self: center;
+    position: absolute;
+}
+.type-file-btn{
+    padding: 0%;
+}
+.uploading{
+    cursor: progress;
+}
+#delete-btn:hover{
+    cursor: pointer;
+    color: red;
+    border-color: red;
+}

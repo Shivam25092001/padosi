@@ -2,7 +2,9 @@ import axios from "axios";
 import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAIL, CLEAR_ERROR,
     REGISTER_REQUEST, REGISTER_SUCCESS, REGISTER_FAIL,
     LOADUSER_REQUEST, LOADUSER_SUCCESS, LOADUSER_FAIL,
-    LOGOUT_SUCCESS, LOGOUT_FAIL } from "../constants/userConstants";
+    LOGOUT_SUCCESS, LOGOUT_FAIL,
+    UPDATE_AVATAR_REQUEST, UPDATE_AVATAR_SUCCESS, UPDATE_AVATAR_FAIL, 
+    UPDATE_PROFILE_REQUEST, UPDATE_PROFILE_SUCCESS, UPDATE_PROFILE_FAIL } from "../constants/userConstants";
 
 export const login = (email, password) => async (dispatch)=>{
     try {
@@ -63,6 +65,43 @@ export const logoutUser = () => async (dispatch) => {
         dispatch( { type: LOGOUT_SUCCESS });
     } catch (error) {
         dispatch({type: LOGOUT_FAIL, payload: error.response.data.message });
+    }
+}
+
+export const editAvatar = (userdata)=> async (dispatch) => {
+    try {
+        dispatch({ type: UPDATE_AVATAR_REQUEST });
+
+        const config = { headers: { "Content-Type": "multipart/form-data"} };
+
+        const {data} = await axios.put(
+            '/api/v1/me/update',
+            userdata,
+            config
+        );
+
+        dispatch( {type: UPDATE_AVATAR_SUCCESS, payload: data.success } );
+    } catch (error) {
+        dispatch({type: UPDATE_AVATAR_FAIL, payload: error.response.data.message});
+    }
+}
+
+
+export const editProfile = (userdata)=> async (dispatch) => {
+    try {
+        dispatch({ type: UPDATE_PROFILE_REQUEST});
+
+        const config = { headers: { "Content-Type": "multipart/form-data" } };
+
+        const {data} = await axios.put(
+            '/api/v1/me/update',
+            userdata,
+            config
+        );
+
+        dispatch( {type: UPDATE_PROFILE_SUCCESS, payload: data.success });
+    } catch (error) {
+        dispatch( {type: UPDATE_PROFILE_FAIL, payload: error.response.data.message});
     }
 }
 

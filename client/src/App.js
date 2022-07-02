@@ -15,6 +15,8 @@ import Profile from "./components/User/Profile";
 import store from "./store";
 import { loadUser } from './actions/userAction';
 import UnderConstruct from './components/underConstruction/UnderConstruct';
+import EditAvatar from './components/User/EditAvatar';
+import EditProfile from './components/User/EditProfile';
 
 function App() {
   React.useEffect(()=>{
@@ -34,6 +36,8 @@ function App() {
         <Route exact path="/rent-in/:keyword" element={<RentIn/>} /> 
         <Route exact path="/login" element={<Login/>} />
         <Route exact path="/account" element={<Profile/>} />
+        <Route exact path="/me/edit-avatar" element={<EditAvatar/>} />
+        <Route exact path="/me/edit-profile" element={<EditProfile/>} />
       </Routes>
     </Router>
   );

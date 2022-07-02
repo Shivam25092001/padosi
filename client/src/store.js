@@ -2,13 +2,15 @@ import {createStore, combineReducers, applyMiddleware} from "redux"
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { supplyReducer, supplyDetailsReducer, userSuppliesReducer } from "./reducers/supplyReducer";
-import { loginReducer } from "./reducers/userReducer";
+import { loginReducer, UpdateAvatarReducer, UpdateProfileReducer } from "./reducers/userReducer";
 
 const reducer = combineReducers({
     supplies: supplyReducer,
     supplyDetails: supplyDetailsReducer,
     userDetails: loginReducer,
     userSupplies: userSuppliesReducer, 
+    editAvatar: UpdateAvatarReducer,
+    editProfile: UpdateProfileReducer,
 });
 
 let initialState = {};

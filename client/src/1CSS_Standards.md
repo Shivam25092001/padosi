@@ -5,6 +5,8 @@
 
     accent: #203864;
 
+    mainBox-background-color: rgba(244, 244, 244, 0.666);
+
     border: solid 2px white;
     border: solid 2px #203864;
     box-shadow: 5px 5px 5px 2px #dfdfdf;

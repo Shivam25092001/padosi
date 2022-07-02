@@ -4,14 +4,17 @@ import { useDispatch } from "react-redux";
 import { logoutUser } from "../../../actions/userAction";
 import { Link, useNavigate } from "react-router-dom";
 import Avatar from "@mui/material/Avatar";
+import { useAlert } from "react-alert";
 
 const UserOptions = ({ user }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const alert = useAlert();
   const [menuToggle, setMenuToggle] = useState(false);
 
   const logout = () => {
     dispatch(logoutUser());
+    alert.success("Logged Out successfully!")
     navigate("/");
   };
 

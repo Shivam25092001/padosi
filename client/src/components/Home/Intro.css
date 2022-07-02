@@ -32,7 +32,7 @@
     font-size: 5vh;
 }
 
-.left-button, .right-button{
+.button{
     min-width: max-content;
     width: 5vw;
     padding: 0.5rem;
@@ -41,7 +41,7 @@
     box-shadow: 2px 2px 5px 2px #dfdfdf;
     border: solid 2px white;
 }
-.left-button:hover, .right-button:hover{
+.button:hover{
     border: solid 2px #203864;
     color: #203864;
     box-shadow: 5px 5px 5px 2px #dfdfdf;

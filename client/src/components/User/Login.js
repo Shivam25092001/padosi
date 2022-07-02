@@ -51,7 +51,7 @@ const Login = () => {
         myForm.set("email", email);
         myForm.set("password", password);
         myForm.set("avatar", avatar);
-       
+        
         dispatch(register(myForm));
     };
 
@@ -116,6 +116,7 @@ const Login = () => {
                     <button ref={switcherTab} />
                 </div>
 
+                {/* login form */}
                 <form className="login-form" ref={loginTab} onSubmit={loginSubmit}>
                     <div className="login-email">
                         <MailOutlineIcon />
@@ -137,6 +138,8 @@ const Login = () => {
                     <input type="submit" value="Login" className="login-btn" />
                 </form>
 
+
+                {/* Signup form */}
                 <form className="signup-form" ref={registerTab} onSubmit={registerSubmit} encType="multipart/form-data">
                     <div className="signup-name">
                         <FaceIcon />

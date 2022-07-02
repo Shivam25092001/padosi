@@ -3,7 +3,7 @@ import "./Profile.css";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { getUserSupplies } from "../../actions/supplyAction";
+import { loadUser, clearErrors } from "../../actions/userAction";
 import Avatar from "@mui/material/Avatar";
 import Paper from "@mui/material/Paper";
 
@@ -11,15 +11,11 @@ const Profile = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const { user, loading, isAuthenticated } = useSelector(
+  const { user, loading, error, isAuthenticated } = useSelector(
     (state) => state.userDetails
   );
-  useEffect(() => {
-    dispatch(getUserSupplies());
-  }, [dispatch]);
 
-  const [ShadowToggle_editProfile, setShadowToggle_editProfile] =
-    useState(false);
+  const [ShadowToggle_editProfile, setShadowToggle_editProfile] = useState(false);
   const [ShadowToggle_password, setShadowToggle_password] = useState(false);
   const [ShadowToggle_orders, setShadowToggle_orders] = useState(false);
   const [ShadowToggle_supplies, setShadowToggle_supplies] = useState(false);
@@ -37,7 +33,7 @@ const Profile = () => {
               src={user.avatar.url}
               sx={{ width: 200, height: 200 }}
             />
-            <Link to="/under-construction"><button className="edit-avatar-btn tooltip"><div className="tooltiptext">Edit avatar</div>+</button></Link>
+            <Link to="/me/edit-avatar"><button className="edit-avatar-btn tooltip"><div className="tooltiptext">Edit avatar</div>+</button></Link>
             <h1 className="user-name">{user.name}</h1>
             <p className="email-id">{user.email}</p>
           </div>
@@ -56,11 +52,13 @@ const Profile = () => {
                 </p>
               </div>
             ) : (
-              ""
+              <div>
+                <p><Link to="/me/edit-profile">Add your address info here</Link></p>
+              </div>
             )}
 
             <div className="links">
-              <Link to="/under-construction" style={{ textDecoration: "none" }}>
+              <Link to="/me/edit-profile" style={{ textDecoration: "none" }}>
                 <Paper
                   onMouseOver={() =>
                     setShadowToggle_editProfile(!ShadowToggle_editProfile)

@@ -189,10 +189,9 @@ const updateProfile = asyncCatch(async (req, res, next) => {
         email : req.body.email,
         address : JSON.parse(req.body.address)
     }
-
-    if(req.body.avatar !== "" && req.body.avatar !== undefined){
+    
+    if(req.body.avatar !== "" && req.body.avatar !== 'undefined'){
         const user = await User.findById(req.user.id);
-
         const imageID = user.avatar.public_id;
 
         await cloudinary.v2.uploader.destroy(imageID);
@@ -201,7 +200,7 @@ const updateProfile = asyncCatch(async (req, res, next) => {
             req.body.avatar,
             { 
                 folder: "padosi-user-avatars",
-                width: 150,
+                width: 300,
                 crop: "scale",
             }
         );

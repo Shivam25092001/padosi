@@ -64,8 +64,8 @@ const Login = () => {
                     setAvatarPreview(reader.result);
                     setAvatar(reader.result);
             };
-
-            reader.readAsDataURL(e.target.files[0]);
+            if(e.target.files[0])
+                reader.readAsDataURL(e.target.files[0]);
 
         } else{
             setUser({ ...user, [e.target.name] : e.target.value });
@@ -78,7 +78,6 @@ const Login = () => {
         alert.error((error));
         dispatch(clearErrors)
       }
-
 
       if(isAuthenticated){
         navigate(`/me`);
@@ -174,7 +173,9 @@ const Login = () => {
                         <input type="file" 
                         name = "avatar"
                         accept = "image/*"
-                        onChange = {registerDataChange} />
+                        onChange = {registerDataChange} 
+                        required
+                        />
 
                     </div>
 

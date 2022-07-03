@@ -19,7 +19,7 @@ const UserOptions = ({ user }) => {
   };
 
   return (
-    <div className="action" onMouseOver={()=> setMenuToggle(!menuToggle)} onMouseOut={()=> setMenuToggle(!menuToggle)}>
+    <div className="action" onMouseOver={()=> setMenuToggle(!menuToggle)} onMouseOut={()=> setMenuToggle(!menuToggle)} onClick={()=> setMenuToggle(true)}>
     {/* <div className="action"> */}
       <div className="profile" onClick={() => setMenuToggle(!menuToggle)}>
         <Avatar

@@ -25,16 +25,26 @@ const EditAvatar = () => {
   const [filename, setFilename] = useState("");
 
   const AvatarDataChange = (e) => {
-    setFilename(e.target.files.item(0).name);
+
+    if(e.target.files.item(0).size > 1*1024*1024) {
+      alert.info(`Your file is greater than 1Mb`);
+    }
+
+    if(e.target.files[0] && e.target.files.item(0).size < 1*1024*1024)
+      setFilename(e.target.files.item(0).name);
+
     const reader = new FileReader();
     reader.onload = () => {
-      if(reader.readyState === 2) 
+      if(reader.readyState === 2 && e.target.files.item(0).size < 1*1024*1024) {
         setAvatarPreview(reader.result);
         setAvatar(reader.result);
+      }
     };
-    
-    reader.readAsDataURL(e.target.files[0]);
+    if(e.target.files[0] )
+      reader.readAsDataURL(e.target.files[0]);
   };
+
+
 
   const AvatarSubmit = (e) => {
     e.preventDefault();
@@ -43,7 +53,7 @@ const EditAvatar = () => {
     myForm.set("name", user.name);
     myForm.set("email", user.email);
     myForm.set("avatar", avatar);
-    myForm.set("address", JSON.stringify(user.address));
+    myForm.set("address", user.address ? JSON.stringify(user.address) : '{}');
 
     dispatch(editAvatar(myForm));
   };
@@ -115,11 +125,15 @@ const EditAvatar = () => {
           >
             <div className={filename === "" ? "undefined" : "filename"}>
               {filename === "" ? <i>Select a file for your profile pictue</i> : filename}
+              <div className="instruction">
+                <i style={{fontSize : "smaller"}}>*file-size must be less than 1Mb</i>
+              </div>
             </div>
+            
             <input
               type="submit"
-              value = {avatar === undefined ? "Remove" :"Upload"}
-              id = {avatar === undefined ? "delete-btn" : "button"}
+              value = "Upload"
+              id = {avatar === undefined ? "disabled-btn" : "button"}
               className= {uploading ? "button uploading" : "button upload-btn"} 
               disabled={uploading ? true : false}
             />

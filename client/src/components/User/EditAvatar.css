@@ -73,8 +73,8 @@
 .uploading{
     cursor: progress;
 }
-#delete-btn:hover{
-    cursor: pointer;
-    color: red;
-    border-color: red;
+#disabled-btn:hover{
+    cursor: not-allowed;
+    color: rgba(255, 0, 0, 0.3);
+    border-color: rgba(255, 0, 0, 0.3);
 }

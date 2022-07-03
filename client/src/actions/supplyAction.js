@@ -9,10 +9,9 @@ export const getSupply = (keyword="", currentPage=1, price=[PRICE_FILTER_MIN , P
         dispatch({type: ALL_SUPPLY_REQUEST});
         console.log(window.location)
         let fetchURL = `${window.location.origin}/api/v1/supplies?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&rating[gte]=${rating}`;
-        let fetchURL2 = `${window.location.origin}`;
-        console.log(fetchURL2)
+        
         if(category){
-            fetchURL = `http://localhost:3000/api/v1/supplies?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&category=${category}&rating[gte]=${rating}`;
+            fetchURL = `${window.location.origin}/api/v1/supplies?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&category=${category}&rating[gte]=${rating}`;
         }
         const {data} = await axios.get(fetchURL);
 

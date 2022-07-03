@@ -26,12 +26,12 @@ app.use("/api/v1", usersRoute);
 app.use("/api/v1", ordersRoute);
 
 //Configuration for hosting out
-// const __filename = fileURLToPath(import.meta.url);
-// const __dirname = path.dirname(__filename);
-// app.use(express.static(path.join(__dirname, "../client/build")));
-// app.get("*", (req, res) => {
-//     res.sendFile(path.resolve(__dirname, "../client/build/index.html"));
-// });
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+app.use(express.static(path.join(__dirname, "../client/build")));
+app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "../client/build/index.html"));
+});
 
 //Middleware for errors
 app.use(errhandle);

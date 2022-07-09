@@ -4,11 +4,13 @@ import "./EditProfile.css"
 import { editProfile, loadUser, clearErrors } from "../../actions/userAction";
 import { useNavigate } from "react-router-dom";
 import { UPDATE_PROFILE_RESET } from "../../constants/userConstants";
+import { useAlert } from "react-alert";
 
 const EditProfile = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const { user, isAuthenticated } = useSelector(
+    const alert = useAlert();
+    const { user } = useSelector(
         (state) => state.userDetails
     );
     const { isUpdated, loading, error } = useSelector(

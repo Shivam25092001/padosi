@@ -40,7 +40,7 @@ const UserOptions = ({ user }) => {
           </li>
 
           <li>
-            <Link to="/me/edit-avatar#">
+            <Link to="/me/edit-profile">
               <img src="/icons/settings.svg" />
               Edit profile
             </Link>

@@ -4,7 +4,8 @@ import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAIL, CLEAR_ERROR,
     LOADUSER_REQUEST, LOADUSER_SUCCESS, LOADUSER_FAIL,
     LOGOUT_SUCCESS, LOGOUT_FAIL,
     UPDATE_AVATAR_REQUEST, UPDATE_AVATAR_SUCCESS, UPDATE_AVATAR_FAIL, 
-    UPDATE_PROFILE_REQUEST, UPDATE_PROFILE_SUCCESS, UPDATE_PROFILE_FAIL } from "../constants/userConstants";
+    UPDATE_PROFILE_REQUEST, UPDATE_PROFILE_SUCCESS, UPDATE_PROFILE_FAIL,
+    UPDATE_PASSWORD_REQUEST, UPDATE_PASSWORD_SUCCESS, UPDATE_PASSWORD_RESET, UPDATE_PASSWORD_FAIL, } from "../constants/userConstants";
 
 export const login = (email, password) => async (dispatch)=>{
     try {
@@ -102,6 +103,25 @@ export const editProfile = (userdata)=> async (dispatch) => {
         dispatch( {type: UPDATE_PROFILE_SUCCESS, payload: data.success });
     } catch (error) {
         dispatch( {type: UPDATE_PROFILE_FAIL, payload: error.response.data.message});
+    }
+}
+
+
+export const editPassword = (passwords)=> async (dispatch) => {
+    try {
+        dispatch({ type: UPDATE_PASSWORD_REQUEST});
+
+        const config = { headers: { "Content-Type": "application/json" } };
+
+        const {data} = await axios.put(
+            '/api/v1/password/update',
+            passwords,
+            config
+        );
+
+        dispatch( {type: UPDATE_PASSWORD_SUCCESS, payload: data.success });
+    } catch (error) {
+        dispatch( {type: UPDATE_PASSWORD_FAIL, payload: error.response.data.message});
     }
 }
 

@@ -1,9 +1,11 @@
-import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAIL, CLEAR_ERROR,
+import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAIL, 
      REGISTER_REQUEST, REGISTER_SUCCESS, REGISTER_FAIL ,
      LOADUSER_REQUEST, LOADUSER_SUCCESS, LOADUSER_FAIL,
      LOGOUT_SUCCESS, LOGOUT_FAIL,
      UPDATE_AVATAR_REQUEST, UPDATE_AVATAR_SUCCESS, UPDATE_AVATAR_RESET, UPDATE_AVATAR_FAIL,
-     UPDATE_PROFILE_REQUEST, UPDATE_PROFILE_SUCCESS, UPDATE_PROFILE_RESET, UPDATE_PROFILE_FAIL, } from "../constants/userConstants";
+     UPDATE_PROFILE_REQUEST, UPDATE_PROFILE_SUCCESS, UPDATE_PROFILE_RESET, UPDATE_PROFILE_FAIL,
+     UPDATE_PASSWORD_REQUEST, UPDATE_PASSWORD_SUCCESS, UPDATE_PASSWORD_RESET, UPDATE_PASSWORD_FAIL,
+     CLEAR_ERROR, } from "../constants/userConstants";
 
 export const loginReducer = ( state = {user: {}, isAuthenticated: false}, action ) => {
     switch(action.type){
@@ -115,12 +117,14 @@ export const UpdateAvatarReducer = ( state = { }, action ) => {
 export const UpdateProfileReducer = ( state = { }, action ) => {
     switch(action.type){
         case UPDATE_PROFILE_REQUEST:
+        case UPDATE_PASSWORD_REQUEST:
             return {
                 ...state,
                 loading: true
             };
 
         case UPDATE_PROFILE_SUCCESS:
+        case UPDATE_PASSWORD_SUCCESS:
         return {
                 ...state,
                 loading: false,
@@ -128,6 +132,7 @@ export const UpdateProfileReducer = ( state = { }, action ) => {
             };
        
         case UPDATE_PROFILE_FAIL:
+        case UPDATE_PASSWORD_FAIL:
             return {
                 ...state,
                 loading: false,
@@ -135,6 +140,7 @@ export const UpdateProfileReducer = ( state = { }, action ) => {
             };
 
         case UPDATE_PROFILE_RESET:
+        case UPDATE_PASSWORD_RESET:
             return {
                 ...state,
                 isUpdated: false,

@@ -190,7 +190,7 @@ const updateProfile = asyncCatch(async (req, res, next) => {
         address : JSON.parse(req.body.address)
     }
     
-    if(req.body.avatar !== "" && req.body.avatar !== 'undefined'){
+    if(req.body.avatar !== undefined && req.body.avatar !== ""){
         const user = await User.findById(req.user.id);
         const imageID = user.avatar.public_id;
 

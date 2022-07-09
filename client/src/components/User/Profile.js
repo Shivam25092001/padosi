@@ -53,12 +53,12 @@ const Profile = () => {
               </div>
             ) : (
               <div>
-                <p><Link to="/me/edit-profile">Add your address info here</Link></p>
+                <p><Link to="edit-profile">Add your address info here</Link></p>
               </div>
             )}
 
             <div className="links">
-              <Link to="/me/edit-profile" style={{ textDecoration: "none" }}>
+              <Link to="edit-profile" style={{ textDecoration: "none" }}>
                 <Paper
                   onMouseOver={() =>
                     setShadowToggle_editProfile(!ShadowToggle_editProfile)
@@ -75,7 +75,7 @@ const Profile = () => {
                   <p className="info">Edit login, name, and address</p>
                 </Paper>
               </Link>
-              <Link to="/under-construction" style={{ textDecoration: "none" }}>
+              <Link to="password/update" style={{ textDecoration: "none" }}>
                 <Paper
                   onMouseOver={() =>
                     setShadowToggle_password(!ShadowToggle_password)

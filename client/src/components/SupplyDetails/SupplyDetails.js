@@ -75,8 +75,9 @@ const SupplyDetails = () => {
             </div>
 
             <p className="price">₹{supply.price} / day</p>
-
+            <span>
             <button className="rent-in-now">Rent-In now!</button>
+            <button className="rent-in-now">Add to cart</button></span>
             <br />
             <br />
             <hr className="hor-line"/>

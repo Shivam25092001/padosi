@@ -1,5 +1,5 @@
 .supplyDetail{
-    height: 80vh;
+    height: 60vh;
     margin-top: 3vh;
     width: 100vw;
     display: flex;
@@ -64,15 +64,23 @@
     font-size: 14px;
     font-weight: 300;
 }
-.details > button{
+.details > span > button{
     min-width: max-content;
     width: 5vw;
     padding: 0.5rem;
     margin-top: 2vh;
     margin-bottom: 3vh;
+    margin-right: 3rem;
     border-radius: 0.3rem;
     box-shadow: 2px 2px 5px 2px #dfdfdf;
     border: solid 2px white;
+    cursor: pointer;
+}
+.details > span > button:hover{
+    border: solid 2px #203864;
+    color: #203864;
+    box-shadow: 5px 5px 5px 2px #dfdfdf;
+    transition: all 0.3s ease-in-out;
 }
 .date{
     font-size: 3vh; 

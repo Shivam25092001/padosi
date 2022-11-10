@@ -11,6 +11,7 @@ import Pagination from "react-js-pagination";
 import Slider, { SliderThumb } from '@mui/material/Slider';
 import { styled } from '@mui/material/styles';
 import { PRICE_FILTER_MAX, PRICE_FILTER_MIN } from '../../constants/supplyConstant';
+import Loading from '../Loading/loading';
 
 // const supply = {
 //     name: "Hammer",
@@ -162,7 +163,6 @@ const RentIn = () => {
         <br />
         <br />
 
-
         Category
         <ul className="category-list">
           {
@@ -177,7 +177,6 @@ const RentIn = () => {
         <br />
         <br />
 
-
         Ratings Above
         <IOSSlider
           aria-labelledby="continuous-slider"
@@ -190,18 +189,19 @@ const RentIn = () => {
         />
       </div>
 
-
       
       {
-      loading ? "loading ..." : 
+      loading ? 
+      // "loading ..." 
+      <Loading/>
+      : 
         <>
           <MetaData title="padosi-RentIN" />
-
           <div className="Featured-section">
             {
               keyword === undefined ? 
-                <h1 className='heading'>Featured Padosi Supplies</h1> :
-                <h1 className='heading'>All Searches related to {keyword} ...</h1>
+              <h1 className='heading'>Featured Padosi Supplies</h1> :
+              <h1 className='heading'>All Searches related to {keyword} ...</h1>
             }
             <div className="supplies-section">
               { supplies && supplies.map(supply => (
@@ -214,7 +214,7 @@ const RentIn = () => {
             <Pagination 
               activePage={currentPage}
               itemsCountPerPage={supplyperPage}
-              totalItemsCount={filteredSuppliesCount}
+              totalItemsCount={filteredSuppliesCount === undefined ? supplyCount : filteredSuppliesCount }
               onChange={setCurrentPageNo}
               nextPageText=">>"
               prevPageText="<<"

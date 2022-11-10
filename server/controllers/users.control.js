@@ -73,7 +73,6 @@ const Logout = asyncCatch( async (req, res, next) => {
     });
 } );
 
-
 // Forgot Password
 const forgotpass = asyncCatch(async(req, res, next) => {
     const user = await User.findOne({ email: req.body.email});
@@ -114,10 +113,9 @@ const forgotpass = asyncCatch(async(req, res, next) => {
     }
 });
 
-
 //Reset Password
 const resetpass = asyncCatch(async(req, res, next) => {
-
+    console.log("reset pass");
     //hashing resetToken & comparing 
     const resetPasswordToken = crypto.createHash("sha256").update(req.params.token).digest("hex");
 
@@ -133,7 +131,7 @@ const resetpass = asyncCatch(async(req, res, next) => {
     if(req.body.password !== req.body.confirmPassword){
         return next(new ErrorHandler("Password & Confirm Password didn't match.", 400));
     }
-
+    console.log(req.body.password)
     user.password = req.body.password;
     user.resetPasswordExpire = undefined;
     user.resetPasswordToken = undefined;
@@ -141,7 +139,6 @@ const resetpass = asyncCatch(async(req, res, next) => {
 
     sendToken(user, 200, res);
 });
-
 
 //Get user details
 const getUserDetails = asyncCatch(async (req, res, next) => {

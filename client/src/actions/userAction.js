@@ -5,7 +5,9 @@ import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAIL, CLEAR_ERROR,
     LOGOUT_SUCCESS, LOGOUT_FAIL,
     UPDATE_AVATAR_REQUEST, UPDATE_AVATAR_SUCCESS, UPDATE_AVATAR_FAIL, 
     UPDATE_PROFILE_REQUEST, UPDATE_PROFILE_SUCCESS, UPDATE_PROFILE_FAIL,
-    UPDATE_PASSWORD_REQUEST, UPDATE_PASSWORD_SUCCESS, UPDATE_PASSWORD_RESET, UPDATE_PASSWORD_FAIL, } from "../constants/userConstants";
+    UPDATE_PASSWORD_REQUEST, UPDATE_PASSWORD_SUCCESS, UPDATE_PASSWORD_FAIL,
+    FORGOT_PASSWORD_REQUEST, FORGOT_PASSWORD_SUCCESS, FORGOT_PASSWORD_FAIL, 
+    RESET_PASSWORD_REQUEST, RESET_PASSWORD_SUCCESS, RESET_PASSWORD_FAIL } from "../constants/userConstants";
 
 export const login = (email, password) => async (dispatch)=>{
     try {
@@ -125,6 +127,43 @@ export const editPassword = (passwords)=> async (dispatch) => {
     }
 }
 
+
+export const forgotPassword = (email)=> async (dispatch) => {
+    try {
+        dispatch({ type: FORGOT_PASSWORD_REQUEST });
+
+        const config = { headers: { "Content-Type": "application/json" } };
+
+        const {data} = await axios.post(
+            '/api/v1/password/forgot',
+            email,
+            config
+        );
+        dispatch({ type: FORGOT_PASSWORD_SUCCESS, payload: data.message });
+    }
+    catch(error){
+        dispatch({ type: FORGOT_PASSWORD_FAIL, payload: error.response.data.message });
+    }
+}
+
+
+export const resetPassword = (token, password, confirmPassword)=> async (dispatch) => {
+    try {
+        dispatch({ type: RESET_PASSWORD_REQUEST });
+
+        const config = { headers: { "Content-Type": "application/json" } };
+
+        const {data} = await axios.post(
+            `/api/v1/password/reset/${token}`,
+            { password, confirmPassword },
+            config
+        );
+        dispatch({ type: RESET_PASSWORD_SUCCESS, payload: data.user });
+    }
+    catch(error){
+        dispatch({ type: RESET_PASSWORD_FAIL, payload: error.response.data.message });
+    }
+}
 
 //clearing errors
 export const clearErrors = ()=> async (dispatch) => {

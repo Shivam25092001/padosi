@@ -7,7 +7,7 @@ import { ALL_SUPPLY_FAIL, ALL_SUPPLY_SUCCESS, ALL_SUPPLY_REQUEST, CLEAR_ERROR,
 export const getSupply = (keyword="", currentPage=1, price=[PRICE_FILTER_MIN , PRICE_FILTER_MAX], category, rating=0)=> async (dispatch)=>{
     try {
         dispatch({type: ALL_SUPPLY_REQUEST});
-        console.log(window.location)
+        
         let fetchURL = `${window.location.origin}/api/v1/supplies?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&rating[gte]=${rating}`;
         
         if(category){

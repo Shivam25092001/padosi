@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { loadUser, clearErrors } from "../../actions/userAction";
 import Avatar from "@mui/material/Avatar";
 import Paper from "@mui/material/Paper";
+import Loading from "../Loading/loading";
 
 const Profile = () => {
   const navigate = useNavigate();
@@ -23,7 +24,9 @@ const Profile = () => {
   return (
     <>
       {loading ? (
-        <>loading</>
+        <>
+          <Loading/>
+        </>
       ) : isAuthenticated ? (
         <div className="user-info-box">
           <div className="basic-left-pane">

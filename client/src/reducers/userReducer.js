@@ -5,6 +5,8 @@ import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAIL,
      UPDATE_AVATAR_REQUEST, UPDATE_AVATAR_SUCCESS, UPDATE_AVATAR_RESET, UPDATE_AVATAR_FAIL,
      UPDATE_PROFILE_REQUEST, UPDATE_PROFILE_SUCCESS, UPDATE_PROFILE_RESET, UPDATE_PROFILE_FAIL,
      UPDATE_PASSWORD_REQUEST, UPDATE_PASSWORD_SUCCESS, UPDATE_PASSWORD_RESET, UPDATE_PASSWORD_FAIL,
+     FORGOT_PASSWORD_REQUEST, FORGOT_PASSWORD_SUCCESS, FORGOT_PASSWORD_FAIL,
+     RESET_PASSWORD_REQUEST, RESET_PASSWORD_SUCCESS, RESET_PASSWORD_FAIL, RESET_PASSWORD_RESET,
      CLEAR_ERROR, } from "../constants/userConstants";
 
 export const loginReducer = ( state = {user: {}, isAuthenticated: false}, action ) => {
@@ -158,3 +160,75 @@ export const UpdateProfileReducer = ( state = { }, action ) => {
             };
     }
 };
+
+export const forgotPasswordReducer =( state = { }, action ) => {
+    switch(action.type){
+        case FORGOT_PASSWORD_REQUEST:
+            return {
+                ...state,
+                loading: true,
+                error: null
+            }
+        
+        case FORGOT_PASSWORD_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                message: action.payload,
+            }
+
+        case FORGOT_PASSWORD_FAIL:
+            return {
+                ...state,
+                loading: false,
+                error: action.payload
+            }
+
+        case CLEAR_ERROR:
+            return {
+                ...state,
+                error: null
+            }
+
+        default:
+            return {
+                ...state
+            };
+    }
+}
+
+export const resetPasswordReducer =( state = { }, action ) => {
+    switch(action.type){
+        case RESET_PASSWORD_REQUEST:
+            return {
+                ...state,
+                loading: true,
+                error: null
+            }
+        
+        case RESET_PASSWORD_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                success: action.payload,
+            }
+
+        case RESET_PASSWORD_FAIL:
+            return {
+                ...state,
+                loading: false,
+                error: action.payload
+            }
+
+        case CLEAR_ERROR:
+            return {
+                ...state,
+                error: null
+            }
+
+        default:
+            return {
+                ...state
+            };
+    }
+}

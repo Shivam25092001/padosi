@@ -7,6 +7,7 @@ import { clearErrors, editAvatar } from "../../actions/userAction";
 import { loadUser } from "../../actions/userAction";
 import { UPDATE_AVATAR_RESET } from "../../constants/userConstants";
 import { useAlert } from "react-alert";
+import Loading from "../Loading/loading";
 
 const EditAvatar = () => {
   const dispatch = useDispatch();
@@ -73,7 +74,7 @@ const EditAvatar = () => {
   }, [dispatch, uploading, isUpdated, error, isAuthenticated, navigate, alert]);
 
   return loading ? (
-    <>loading</>
+    <><Loading/></>
   ) : (
     <div className="edit-avatar">
       <h1>Edit Profile Picture</h1>

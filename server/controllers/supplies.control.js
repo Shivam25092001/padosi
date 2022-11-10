@@ -5,7 +5,7 @@ import Apifeatures from "../utils/apifeatures.js";
 
 //Create Supply Item
 const createSupply = asyncCatch(async (req,res)=>{
-    console.log(req.user.id);
+    // console.log(req.user.id);
     
     req.body.owner = { "owner_id" : req.user.id };
     const item =  await supplyItem.create(req.body);

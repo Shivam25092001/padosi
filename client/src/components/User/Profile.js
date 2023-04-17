@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./Profile.css";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { loadUser, clearErrors } from "../../actions/userAction";
+// import { loadUser, clearErrors } from "../../actions/userAction";
 import Avatar from "@mui/material/Avatar";
 import Paper from "@mui/material/Paper";
 import Loading from "../Loading/loading";

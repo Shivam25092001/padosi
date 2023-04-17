@@ -13,7 +13,10 @@ import {fileURLToPath} from 'url';
 
 
 const app = express();
-app.use(cors());
+app.use(cors({
+    origin: 'http://localhost:3000',
+    credentials: true,
+}));
 app.use(express.json());
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -26,12 +29,12 @@ app.use("/api/v1", usersRoute);
 app.use("/api/v1", ordersRoute);
 
 //Configuration for hosting 
-// const __filename = fileURLToPath(import.meta.url);
-// const __dirname = path.dirname(__filename);
-// app.use(express.static(path.join(__dirname, "../client/build")));
-// app.get("*", (req, res) => {
-//     res.sendFile(path.resolve(__dirname, "../client/build/index.html"));
-// });
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+app.use(express.static(path.join(__dirname, "../client/build")));
+app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "../client/build/index.html"));
+});
 
 //Middleware for errors
 app.use(errhandle);

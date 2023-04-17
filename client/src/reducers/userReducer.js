@@ -28,6 +28,7 @@ export const loginReducer = ( state = {user: {}, isAuthenticated: false}, action
                 isAuthenticated: true,
                 user: action.payload
             };
+            
         case LOGOUT_SUCCESS:
             return{
                 loading: false,

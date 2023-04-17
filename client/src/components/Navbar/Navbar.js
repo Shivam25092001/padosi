@@ -2,12 +2,12 @@ import React, { useState , useEffect} from 'react';
 import {Link ,useNavigate} from "react-router-dom";
 import { useSelector } from "react-redux";
 import './Navbar.css';
-import UserOptions from './UserMenu/UserOptions';
+import UserOptions from './UserMenuDropdown/UserOptions';
 
 export default function Navbar() {
     const navigate = useNavigate();
-    const [toggle, setToggle] = useState(false);
     const [keyword, setKeyword] = useState("");
+    const [toggle, setToggle] = useState(false);
     const { loading, user, isAuthenticated } = useSelector( state => state.userDetails);
 
     const searchSubmitHandler = (e)=>{
@@ -44,15 +44,24 @@ export default function Navbar() {
             </div>
             <div className={toggle ? "bottom-section-active" : "bottom-section"}>
                 <ul className="nav-links">
-                    <li className="nav-link"><Link to='/rent-in'>All</Link></li>
-                    <li className="nav-link"><Link to='#'>Frequent Rentals</Link></li>
-                    <li className="nav-link"><Link to='#'>Motor-Vehicles</Link></li>
-                    <li className="nav-link"><Link to='#'>Hardware</Link></li>
-                    <li className="nav-link">
+                    <li className="nav-link"><Link to='/rent-in' onClick={()=> setToggle(!toggle)}>All</Link></li>
+                    <li className="nav-link"><Link to='#' onClick={()=> setToggle(!toggle)}>Frequent Rentals</Link></li>
+                    <li className="nav-link"><Link to='#' onClick={()=> setToggle(!toggle)}>Motor-Vehicles</Link></li>
+                    <li className="nav-link"><Link to='#' onClick={()=> setToggle(!toggle)}>Hardware</Link></li>
+                    <li className="nav-link nav-search">
                         <form className="search-box" onSubmit={searchSubmitHandler}>
                         <input className="search-input" type="text" placeholder="Search" onChange={(e)=>setKeyword(e.target.value)}/>
                         <input className="search-button" type="submit" value=" Q "/>
                         </form>
+                    </li>
+                    <li className="nav-link nav-login" onClick={()=> setToggle(!toggle)}>
+                        <div className="login-info">
+                            {
+                                isAuthenticated 
+                                ? <UserOptions user={ user } />
+                                : <Link to='/login'>Login</Link>
+                            }
+                        </div>
                     </li>
                 </ul>
             </div>

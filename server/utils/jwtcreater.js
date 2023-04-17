@@ -2,13 +2,14 @@
 
 const sendToken = (user, statusCode, res)=>{
     const Token = user.getJWT();
-
     //options for cookie
     const options = {
         expires: new Date(
             Date.now + process.env.COOKIE_EXPIRY*24*60*60*1000
         ),
-        httpOnly: true
+        setPath: "/",
+        httpOnly: true,
+        setSecure : false,
     };
 
     res.status(statusCode).cookie("token", Token, options).json({
@@ -18,3 +19,5 @@ const sendToken = (user, statusCode, res)=>{
 };
 
 export default sendToken
+
+

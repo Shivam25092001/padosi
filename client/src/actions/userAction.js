@@ -9,14 +9,15 @@ import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAIL, CLEAR_ERROR,
     FORGOT_PASSWORD_REQUEST, FORGOT_PASSWORD_SUCCESS, FORGOT_PASSWORD_FAIL, 
     RESET_PASSWORD_REQUEST, RESET_PASSWORD_SUCCESS, RESET_PASSWORD_FAIL } from "../constants/userConstants";
 
+
 export const login = (email, password) => async (dispatch)=>{
     try {
         dispatch({type: LOGIN_REQUEST});
 
-        const config = { headers: { "Content-Type": "application/json" } };
+        const config = { headers: { "Content-Type": "application/json" }, withCredentials: true };
 
         const {data} = await axios.post(
-            '/api/v1/login',
+            'http://localhost:5000/api/v1/login',
             { email, password },
             config
         );

@@ -6,7 +6,6 @@ import User from "../models/userModel.js";
 
 const isUserAuthentic = asyncCatch( async (req, res, next) => {
     const { token } = req.cookies;
-
     if(!token){
         return next(new ErrorHandler("Please login to complete this request", 401));
     }

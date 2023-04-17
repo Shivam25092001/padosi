@@ -51,7 +51,6 @@ const Login = asyncCatch( async (req, res, next)=>{
     }
     const isPasswordMatched = await user.comparePassword(password);
     if(!isPasswordMatched){
-
         return next(new ErrorHandler("Email ID or Password incorrect", 401));
     }
 
@@ -184,7 +183,8 @@ const updateProfile = asyncCatch(async (req, res, next) => {
     const newUserData = {
         name : req.body.name,
         email : req.body.email,
-        address : JSON.parse(req.body.address)
+        address : req.body.address
+        // address : JSON.parse(req.body.address)
     }
     
     if(req.body.avatar !== undefined && req.body.avatar !== ""){

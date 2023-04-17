@@ -36,10 +36,11 @@
     min-width: max-content;
     width: 5vw;
     padding: 0.5rem;
-    margin-top: 3vh;
+    margin-top: 0vh;
     border-radius: 0.3rem;
     box-shadow: 2px 2px 5px 2px #dfdfdf;
     border: solid 2px white;
+    color: black;
 }
 .button:hover{
     border: solid 2px #203864;
@@ -48,11 +49,49 @@
     transition: all 0.3s ease-in-out;
 }
 
+.search-box-large{
+    display: none;
+}
 
+@media screen and (max-width: 1110px){
+    .search-box-large{
+        display: block;
+        height: 100%;
+        border: none;
+        outline: none;
+        margin: 0 10vw;
+        border-radius: 2rem;
+        background-color: #eeeeee;
+    }
+    
+    .search-box-large > .search-input{
+        width: 90%;
+        height: 100%;
+        border: none;
+        outline: none;
+        padding: 0.5rem 1rem;
+        border-radius: 1.2rem;
+        background-color: #eeeeee;
+    }
+
+    .search-box-large > .search-button{
+        width: 10%;
+        margin: 0%;
+        height: 100%;
+        padding: 0.5rem;
+        border-radius: 1.2rem;
+    }
+}
 
 @media screen and (max-width: 768px){
     .home{
         flex-direction: column;
+        height: 60vh;
+        justify-content: space-between;
+    }
+    .child > h2{
+        margin: 0;
+        font-size: 4vh;
     }
     .right{
         padding-right: 10vw;
@@ -61,7 +100,9 @@
         padding-left: 10vw;
     }
     .line{
-        height: 2px;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+        min-height: 2px;
         width: 80vw;
     }
 }

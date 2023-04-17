@@ -20,7 +20,7 @@ const ForgotPassword = () => {
       dispatch(clearErrors());
     }
 
-    else if (!loading && message!=undefined) {
+    else if (!loading && message !== undefined) {
       alert.success(message);
     }
   }, [dispatch, loading, message, error]);

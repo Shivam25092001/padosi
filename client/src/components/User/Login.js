@@ -4,7 +4,7 @@ import MailOutlineIcon from "@material-ui/icons/MailOutline";
 import LockOpenIcon from "@material-ui/icons/LockOpen";
 import FaceIcon from "@material-ui/icons/Face";
 import "./Login.css";
-import {useDispatch, useSelector} from "react-redux";
+import {connectAdvanced, useDispatch, useSelector} from "react-redux";
 import { clearErrors, login, register } from "../../actions/userAction";
 import {useAlert} from 'react-alert';
 
@@ -75,8 +75,9 @@ const Login = () => {
  
     useEffect(() => {
       if(error){
-        alert.error((error));
+        // alert.error((error));
         dispatch(clearErrors)
+        console.log(error);
       }
 
       if(isAuthenticated){

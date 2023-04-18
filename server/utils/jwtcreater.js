@@ -9,7 +9,7 @@ const sendToken = (user, statusCode, res)=>{
         ),
         setPath: "/",
         // httpOnly: true,
-        // setSecure : false,
+        setSecure : false,
     };
 
     res.status(statusCode).cookie("token", Token, options).json({

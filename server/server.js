@@ -14,7 +14,7 @@ import {fileURLToPath} from 'url';
 
 const app = express();
 app.use(cors({
-    origin: '*',
+    origin: 'https://padosi-apiv1.onrender.com',
     credentials: true,
 }));
 app.use(express.json());

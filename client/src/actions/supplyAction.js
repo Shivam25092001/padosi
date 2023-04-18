@@ -9,12 +9,12 @@ export const getSupply = (keyword="", currentPage=1, price=[PRICE_FILTER_MIN , P
         dispatch({type: ALL_SUPPLY_REQUEST});
         // let fetchURL = `http://localhost:5000/api/v1/supplies?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&rating[gte]=${rating}`;
         // let fetchURL = `${window.location.origin}/api/v1/supplies?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&rating[gte]=${rating}`;
-        let fetchURL = `https://padosi-apiv1-git-main-shivam25092001.vercel.app/api/v1/supplies?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&rating[gte]=${rating}`
+        let fetchURL = `https://padosi-apiv1.onrender.com/api/v1/supplies?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&rating[gte]=${rating}`
 
         if(category){
             // fetchURL = `http://localhost:5000/api/v1/supplies?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&category=${category}&rating[gte]=${rating}`;
             // fetchURL = `${window.location.origin}/api/v1/supplies?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&category=${category}&rating[gte]=${rating}`;
-            fetchURL = `https://padosi-apiv1-git-main-shivam25092001.vercel.app/api/v1/supplies?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&category=${category}&rating[gte]=${rating}`;
+            fetchURL = `https://padosi-apiv1.onrender.com/api/v1/supplies?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&category=${category}&rating[gte]=${rating}`;
         }
         const {data} = await axios.get(fetchURL);
 
@@ -35,7 +35,7 @@ export const getSupplyDetails = (id)=>async (dispatch)=> {
     try{
         dispatch({ type: SUPPLY_DETAILS_REQUEST });
 
-        const { data } = await axios.get(`https://padosi-apiv1-git-main-shivam25092001.vercel.app/api/v1/supplies/${id}`); 
+        const { data } = await axios.get(`https://padosi-apiv1.onrender.com/api/v1/supplies/${id}`); 
 
         dispatch({
             type: SUPPLY_DETAILS_SUCCESS,
@@ -55,7 +55,7 @@ export const getUserSupplies = ()=> async (dispatch)=>{
     try{
         dispatch({ type: USER_SUPPLY_REQUEST });
 
-        const { data } = await axios.get(`https://padosi-apiv1-git-main-shivam25092001.vercel.app/api/v1/supplies/me`); 
+        const { data } = await axios.get(`https://padosi-apiv1.onrender.com/api/v1/supplies/me`); 
 
         dispatch({
             type: USER_SUPPLY_SUCCESS,

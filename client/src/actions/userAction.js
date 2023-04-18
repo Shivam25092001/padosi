@@ -17,7 +17,8 @@ export const login = (email, password) => async (dispatch)=>{
         const config = { headers: { "Content-Type": "application/json" }, withCredentials: true };
 
         const {data} = await axios.post(
-            'http://localhost:5000/api/v1/login',
+            // 'http://localhost:5000/api/v1/login',
+            'https://padosi-apiv1-git-main-shivam25092001.vercel.app/api/v1/login',
             { email, password },
             config
         );

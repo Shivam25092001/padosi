@@ -47,7 +47,6 @@ function App() {
           <Route exact path="/me/edit-profile" element={<EditProfile/>} />
           <Route exact path="/me/password/update" element={<UpdatePassword/>} />
         </Route>
-        
       </Routes>
     </Router>
   );

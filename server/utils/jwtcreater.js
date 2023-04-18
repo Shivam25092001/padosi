@@ -8,8 +8,8 @@ const sendToken = (user, statusCode, res)=>{
             Date.now() + process.env.COOKIE_EXPIRY*24*60*60*1000
         ),
         setPath: "/",
-        httpOnly: true,
-        setSecure : false,
+        // httpOnly: true,
+        // setSecure : false,
     };
 
     res.status(statusCode).cookie("token", Token, options).json({

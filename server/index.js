@@ -1,8 +1,8 @@
 import mongoose from "mongoose";
 import app from "./server.js";
 import dotenv from "dotenv";
-if(process.env.NODE_ENV !== "PRODUCTION")
-  dotenv.config();
+// if(process.env.NODE_ENV !== "PRODUCTION")
+//   dotenv.config();
 
 
 import cloudinary from "cloudinary";
@@ -26,6 +26,7 @@ const server = app.listen(port, () => {
 });
  
 
+mongoose.set("strictQuery", false);
 mongoose
   .connect(process.env.DBCONNECTION_URL)
   .then((data) => {

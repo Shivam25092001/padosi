@@ -57,7 +57,7 @@ export const editAvatar = (userdata)=> async (dispatch) =>{
         const config = { headers: { "Content-Type": "multipart/form-data"} };
         
         const {data} = await axios.put(
-            '/api/v1/me/update',
+            'https://padosi-apiv1-git-main-shivam25092001.vercel.app/api/v1/me/update',
             userdata,
             config
         );
@@ -73,7 +73,7 @@ export const loadUser = () => async (dispatch) => {
     try {
         dispatch({ type: LOADUSER_REQUEST});
 
-        const {data} = await axios.get('/api/v1/me');
+        const {data} = await axios.get('https://padosi-apiv1-git-main-shivam25092001.vercel.app/api/v1/me');
 
         dispatch( { type: LOADUSER_SUCCESS, payload: data.user });
     } catch (error) {
@@ -84,7 +84,7 @@ export const loadUser = () => async (dispatch) => {
 
 export const logoutUser = () => async (dispatch) => {
     try {
-         await axios.get('/api/v1/logout');
+         await axios.get('https://padosi-apiv1-git-main-shivam25092001.vercel.app/api/v1/logout');
 
         dispatch( { type: LOGOUT_SUCCESS });
     } catch (error) {
@@ -100,7 +100,7 @@ export const editProfile = (userdata)=> async (dispatch) => {
         const config = { headers: { "Content-Type": "application/json" } };
 
         const {data} = await axios.put(
-            '/api/v1/me/update',
+            'https://padosi-apiv1-git-main-shivam25092001.vercel.app/api/v1/me/update',
             userdata,
             config
         );
@@ -119,7 +119,7 @@ export const editPassword = (passwords)=> async (dispatch) => {
         const config = { headers: { "Content-Type": "application/json" } };
 
         const {data} = await axios.put(
-            '/api/v1/password/update',
+            'https://padosi-apiv1-git-main-shivam25092001.vercel.app/api/v1/password/update',
             passwords,
             config
         );
@@ -138,7 +138,7 @@ export const forgotPassword = (email)=> async (dispatch) => {
         const config = { headers: { "Content-Type": "application/json" } };
 
         const {data} = await axios.post(
-            '/api/v1/password/forgot',
+            'https://padosi-apiv1-git-main-shivam25092001.vercel.app/api/v1/password/forgot',
             email,
             config
         );
@@ -157,7 +157,7 @@ export const resetPassword = (token, password, confirmPassword)=> async (dispatc
         const config = { headers: { "Content-Type": "application/json" } };
 
         const {data} = await axios.post(
-            `/api/v1/password/reset/${token}`,
+            `https://padosi-apiv1-git-main-shivam25092001.vercel.app/api/v1/password/reset/${token}`,
             { password, confirmPassword },
             config
         );

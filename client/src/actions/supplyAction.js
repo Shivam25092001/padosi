@@ -35,7 +35,7 @@ export const getSupplyDetails = (id)=>async (dispatch)=> {
     try{
         dispatch({ type: SUPPLY_DETAILS_REQUEST });
 
-        const { data } = await axios.get(`/api/v1/supplies/${id}`); 
+        const { data } = await axios.get(`https://padosi-apiv1-git-main-shivam25092001.vercel.app/api/v1/supplies/${id}`); 
 
         dispatch({
             type: SUPPLY_DETAILS_SUCCESS,
@@ -55,7 +55,7 @@ export const getUserSupplies = ()=> async (dispatch)=>{
     try{
         dispatch({ type: USER_SUPPLY_REQUEST });
 
-        const { data } = await axios.get(`/api/v1/supplies/me`); 
+        const { data } = await axios.get(`https://padosi-apiv1-git-main-shivam25092001.vercel.app/api/v1/supplies/me`); 
 
         dispatch({
             type: USER_SUPPLY_SUCCESS,

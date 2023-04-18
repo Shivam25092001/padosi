@@ -14,7 +14,7 @@ import {fileURLToPath} from 'url';
 
 const app = express();
 app.use(cors({
-    origin: 'http://localhost:3000',
+    origin: '*',
     credentials: true,
 }));
 app.use(express.json());

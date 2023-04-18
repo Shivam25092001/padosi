@@ -26,7 +26,7 @@ export const getSupply = (keyword="", currentPage=1, price=[PRICE_FILTER_MIN , P
     catch (error) {
         dispatch( {
             type: ALL_SUPPLY_FAIL,
-            payload: error.response.data.message
+            payload: error
         } );
     }
 };

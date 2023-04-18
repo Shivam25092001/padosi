@@ -14,7 +14,7 @@ import {fileURLToPath} from 'url';
 
 const app = express();
 app.use(cors({
-    origin: 'https://padosi-apiv1.onrender.com',
+origin: ['https://padosi-apiv1.onrender.com', 'http://localhost:3000','https://padosi-five.vercel.app/','padosi-qhc0brmxu-shivam25092001.vercel.app'],
     credentials: true,
 }));
 app.use(express.json());

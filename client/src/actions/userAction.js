@@ -38,7 +38,8 @@ export const register = (userdata) => async (dispatch) =>{
         const config = { headers: { "Content-Type": "multipart/form-data"} };
 
         const {data} = await axios.post(
-            '/api/v1/register',
+            //'/api/v1/register',
+            'https://padosi-apiv1-git-main-shivam25092001.vercel.app/api/v1/register',
             userdata,
             config
         );
